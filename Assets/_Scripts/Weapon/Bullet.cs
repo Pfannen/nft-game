@@ -14,9 +14,4 @@ public class Bullet : MonoBehaviour
         transform.parent = null;
         Destroy(this.gameObject, 2f);
     }
-
-    void Update()
-    {
-        Debug.Log(rb.velocity);
-    }
 }

@@ -1,9 +1,10 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public static class DataFetcher {
     public static Smol[] smols = null;
 
-    public static async void FetchSmols(string address) {
+    public static async Task FetchSmols(string address) {
         try {
             smols = await HttpRequest.Get<Smol[]>($"http://localhost:3000/metadata/smol?account={address}");
             Debug.Log(smols.Length);
@@ -13,11 +14,13 @@ public static class DataFetcher {
     }
 }
 
+[System.Serializable]
 public class Smol {
     public string tokenId { get; set; }
     public Attributes attributes { get; set; }
 }
 
+[System.Serializable]
 public class Attributes {
     public string Background { get; set; }
 
