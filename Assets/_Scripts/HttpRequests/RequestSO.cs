@@ -34,7 +34,7 @@ public class RequestSO : ScriptableObject {
         }
     }
 
-    void ReadSmols() {
+    public void ReadSmols() {
         using (FileStream stream = new(path + "/Smols.smol", FileMode.Open)) {
             BinaryFormatter bF = new();
             Smol[] smols = bF.Deserialize(stream) as Smol[];
