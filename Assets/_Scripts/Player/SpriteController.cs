@@ -9,7 +9,7 @@ public class SpriteController : MonoBehaviour {
 
     void Start() {
         resolvers = GetComponentsInChildren<SpriteResolver>();
-        SetSmolOutfit(DataFetcher.smols?[curFit]);
+        SetSmolOutfit(DataFetcher.Smols?[curFit]);
         request.OnSetSmol += SetSmolOutfit;
     }
 
@@ -17,7 +17,7 @@ public class SpriteController : MonoBehaviour {
         if (Input.GetKeyDown("l")) {
             curFit++;
             if (curFit >= 6) curFit = 0;
-            SetSmolOutfit(DataFetcher.smols[curFit]);
+            SetSmolOutfit(DataFetcher.Smols[curFit]);
         }
     }
 

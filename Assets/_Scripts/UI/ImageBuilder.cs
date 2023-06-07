@@ -10,7 +10,7 @@ public class ImageBuilder : MonoBehaviour {
     void Start() {
         library = GetComponent<SpriteLibrary>();
         request.ReadSmols();
-        for(int i = 0; i < 6; i++) SetImage(DataFetcher.smols[i]);
+        for(int i = 0; i < 6; i++) SetImage(DataFetcher.Smols[i]);
     }
 
     public void SetImage(Smol smol) {

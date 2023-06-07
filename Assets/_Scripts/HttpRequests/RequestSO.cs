@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RequestSO", menuName = "Macho/RequestSO", order = 0)]
 public class RequestSO : ScriptableObject {
     [SerializeField] bool fetchSmols = true;
-    string path;
+    string path = null;
 
     public event Action<Smol> OnSetSmol;
 
@@ -15,9 +15,10 @@ public class RequestSO : ScriptableObject {
     }
 
     private void OnValidate() {
-        Debug.Log(DataFetcher.smols?[0].tokenId);
+        if (path == null) return;
+        Debug.Log(DataFetcher.Smols?[0].tokenId);
         if (File.Exists(path + "/Smols.smol")) {
-            if (DataFetcher.smols == null) ReadSmols();
+            if (DataFetcher.Smols == null) ReadSmols();
         }
         else FetchAndSerializeSmols();
         //LoopThroughSmols();
@@ -29,8 +30,8 @@ public class RequestSO : ScriptableObject {
     }
 
     void LoopThroughSmols() {
-        if (DataFetcher.smols != null) {
-            foreach(Smol smol in DataFetcher.smols) Debug.Log(smol.tokenId);
+        if (DataFetcher.Smols != null) {
+            foreach(Smol smol in DataFetcher.Smols) Debug.Log(smol.tokenId);
         }
     }
 
@@ -38,16 +39,16 @@ public class RequestSO : ScriptableObject {
         using (FileStream stream = new(path + "/Smols.smol", FileMode.Open)) {
             BinaryFormatter bF = new();
             Smol[] smols = bF.Deserialize(stream) as Smol[];
-            DataFetcher.smols = smols;
+            DataFetcher.SetSmols(smols);
             Debug.Log("Read");
-            OnSetSmol?.Invoke(DataFetcher.smols[0]);
+            OnSetSmol?.Invoke(DataFetcher.Smols[0]);
         }
     }
 
     void SerializeSmols() {
         using (FileStream stream = new(path + "/Smols.smol", FileMode.Create)) {
             BinaryFormatter bF = new();
-            bF.Serialize(stream, DataFetcher.smols);
+            bF.Serialize(stream, DataFetcher.Smols);
         }
     }
 }

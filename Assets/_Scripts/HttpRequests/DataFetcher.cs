@@ -2,15 +2,19 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 public static class DataFetcher {
-    public static Smol[] smols = null;
+    public static Smol[] Smols { get; private set; }
 
     public static async Task FetchSmols(string address) {
         try {
-            smols = await HttpRequest.Get<Smol[]>($"http://localhost:3000/metadata/smol?account={address}");
-            Debug.Log(smols.Length);
+            Smols = await HttpRequest.Get<Smol[]>($"http://localhost:3000/metadata/smol?account={address}");
+            Debug.Log(Smols.Length);
         } catch (System.Exception ex) {
             Debug.Log(ex.Message);
         }
+    }
+
+    public static void SetSmols(Smol[] smols) {
+        Smols = smols;
     }
 }
 
