@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  destroyObject: {fileID: 5521716870538148753, guid: 2889c9cf27a9c61478c49d092a767d62, type: 3}

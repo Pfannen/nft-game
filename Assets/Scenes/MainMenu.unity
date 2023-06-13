@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: c29978288d883c5499c9ae59a1c0efbb, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 0fa6afc565c791747a4c295873ffcc3b, type: 3}
 --- !u!114 &1210160917
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91a8cd427a2efd747839e9d28bd5abe8, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: dc4eef4716cee99409aa838e14e4204c, type: 3}
+  m_Name: ProjectileWeapon
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5521716870538148753, guid: 2889c9cf27a9c61478c49d092a767d62, type: 3}
-  speed: 5
-  lifeTime: 2
+  prefab: {fileID: 0}
+  damage: 1
+  range: 5
+  animations: []
+  defaultProjectile: {fileID: -3842345458119125944, guid: 09639a91ede98d1448d3b4fb2d012b86, type: 3}

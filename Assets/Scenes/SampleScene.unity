@@ -913,9 +913,10 @@ GameObject:
   - component: {fileID: 1857805369}
   - component: {fileID: 1857805368}
   - component: {fileID: 1857805367}
-  - component: {fileID: 1857805370}
   - component: {fileID: 1857805371}
   - component: {fileID: 1857805372}
+  - component: {fileID: 1857805373}
+  - component: {fileID: 1857805374}
   m_Layer: 0
   m_Name: Smol
   m_TagString: Untagged
@@ -990,7 +991,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1857805368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,20 +1036,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1857805370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857805363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6e954fdd2e7a846b7c6ebef9a8ef5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: -3842345458119125944, guid: 09639a91ede98d1448d3b4fb2d012b86, type: 3}
-  bulletSpawn: {fileID: 1790780323}
 --- !u!114 &1857805371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,7 +1049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: c29978288d883c5499c9ae59a1c0efbb, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: 0fa6afc565c791747a4c295873ffcc3b, type: 3}
 --- !u!114 &1857805372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1063,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   request: {fileID: 11400000, guid: 653455d9701390a41a54f83b547d3d98, type: 2}
+--- !u!114 &1857805373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857805363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33845567ec6331d45a3f1b6f462a0e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 8249807630c1b324fad2ebb426c129f9, type: 2}
+  spawn: {fileID: 1790780323}
+--- !u!70 &1857805374
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857805363}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.10344066}
+  m_Size: {x: 0.5, y: 1.030807}
+  m_Direction: 0
 --- !u!1 &1871544421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CategoryHash: 0
   m_labelHash: 0
-  m_SpriteKey: 7.2698103e-10
+  m_SpriteKey: 0
 --- !u!1 &2012640399
 GameObject:
   m_ObjectHideFlags: 0

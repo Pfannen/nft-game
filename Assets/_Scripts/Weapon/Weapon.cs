@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Weapon : MonoBehaviour
+[CreateAssetMenu(fileName = "Weapon", menuName = "Macho/Weapon", order = 0)]
+public abstract class Weapon : ScriptableObject
 {
-    [SerializeField] Bullet bullet;
-    [SerializeField] Transform bulletSpawn;
+    [SerializeField] GameObject prefab;
+    [SerializeField] float damage = 1f;
+    [SerializeField] float range = 5f;
+    [SerializeField] AnimationClip[] animations = null;
 
-    private void OnFire(InputValue val )
-    {
-        Debug.Log("Fire");
-        Instantiate(bullet, bulletSpawn.position, Quaternion.identity, bulletSpawn);
-    }
+    public GameObject Prefab => prefab;
+    public float Damage => damage;
+    public float Range => range;
+    public AnimationClip[] Animations => animations;
+
+    public abstract void Attack(Transform spawn);
 }
