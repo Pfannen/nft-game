@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
+    [SerializeField] GameObject explosion;
 
     public void Fire(float range) {
         var rb = GetComponent<Rigidbody2D>();
@@ -12,5 +13,11 @@ public class Projectile : MonoBehaviour
         rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse);
         transform.parent = null;
         Destroy(this.gameObject, 2f);
+    }
+
+    void OnDestroy() {
+        if (explosion != null) {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+        }
     }
 }
