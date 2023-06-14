@@ -149,6 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   explosion: {fileID: 5898598155804651008, guid: 545ae1762e8e23f46a09314785e8dd69, type: 3}
+  explosionLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &8815254661269394797
 GameObject:
   m_ObjectHideFlags: 0
