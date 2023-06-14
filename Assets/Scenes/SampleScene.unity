@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33845567ec6331d45a3f1b6f462a0e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 8249807630c1b324fad2ebb426c129f9, type: 2}
+  weapon: {fileID: 11400000, guid: 260d3d009ebbff2458d0f1856a2ff56d, type: 2}
   weaponSpawnLocation: {fileID: 1790780323}
 --- !u!70 &1857805374
 CapsuleCollider2D:

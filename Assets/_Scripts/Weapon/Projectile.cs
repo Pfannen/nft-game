@@ -7,9 +7,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] float speed = 1f;
     [SerializeField] GameObject explosion;
 
-    public void Fire(float range) {
+    public void Fire(float range, int dir) {
         var rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(speed * transform.parent.parent.localScale.x * range, 0);
+        rb.velocity = new Vector2(speed * dir * range, 0);
         rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse);
         transform.parent = null;
         Destroy(this.gameObject, 2f);

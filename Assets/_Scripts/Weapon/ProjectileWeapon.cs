@@ -5,9 +5,9 @@ public class ProjectileWeapon : Weapon
 {
     [SerializeField] Projectile defaultProjectile;
 
-    public override void Attack(Transform spawn)
+    public override void Attack(Transform spawn, int dir)
     {
         var obj = Instantiate(defaultProjectile, spawn.position, Quaternion.identity, spawn);
-        obj.Fire(Range);
+        obj.Fire(Range, dir);
     }
 }
