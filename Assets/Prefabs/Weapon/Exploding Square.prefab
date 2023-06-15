@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1130136293478547544}
   - component: {fileID: 6058239081251343851}
   - component: {fileID: 5034777628459636080}
-  - component: {fileID: -3842345458119125944}
+  - component: {fileID: 1344812707200646769}
   m_Layer: 0
-  m_Name: Test2
+  m_Name: Exploding Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3842345458119125944
+--- !u!114 &1344812707200646769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,14 +144,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 8144255896377629960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7df54d7e56f83b40ba35ca21845420b, type: 3}
+  m_Script: {fileID: 11500000, guid: c10876efd06afd3479c4a40a523429a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  explosion: {fileID: 5898598155804651008, guid: 545ae1762e8e23f46a09314785e8dd69, type: 3}
+  damage: 1
+  isHoming: 0
+  destroyOnCollision: 0
+  destroyTime: 2
+  initialImpulse: {x: 0, y: 0}
+  destroyVfx: {fileID: 5898598155804651008, guid: 545ae1762e8e23f46a09314785e8dd69, type: 3}
+  explosionRadius: 5
+  miniExplosives: 0
+  explosionImpact: 5
   explosionLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
 --- !u!1 &8815254661269394797
 GameObject:
   m_ObjectHideFlags: 0

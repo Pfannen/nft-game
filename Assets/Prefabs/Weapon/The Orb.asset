@@ -17,4 +17,4 @@ MonoBehaviour:
   range: 5
   cooldown: 1
   animations: []
-  defaultProjectile: {fileID: -3842345458119125944, guid: 09639a91ede98d1448d3b4fb2d012b86, type: 3}
+  defaultProjectile: {fileID: 1344812707200646769, guid: 09639a91ede98d1448d3b4fb2d012b86, type: 3}

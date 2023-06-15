@@ -15,6 +15,6 @@ MonoBehaviour:
   prefab: {fileID: 5521716870538148753, guid: 2889c9cf27a9c61478c49d092a767d62, type: 3}
   damage: 1
   range: 5
-  coolDown: 3
+  cooldown: 1
   animations: []
-  defaultProjectile: {fileID: -3842345458119125944, guid: 09639a91ede98d1448d3b4fb2d012b86, type: 3}
+  defaultProjectile: {fileID: 1344812707200646769, guid: 09639a91ede98d1448d3b4fb2d012b86, type: 3}
