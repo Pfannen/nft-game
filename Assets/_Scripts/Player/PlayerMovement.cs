@@ -34,15 +34,9 @@ public class PlayerMovement : MonoBehaviour
         playerRb.velocity = new Vector2(moveInput.x * speed, playerRb.velocity.y);
     }
 
-    private void Jump() {
-        playerRb.velocity += new Vector2(0f, moveInput.y * jumpHeight);
-    }
-
-        void FlipSprite()
-    {
+    void FlipSprite() {
         bool horizontalMovement = Mathf.Abs(playerRb.velocity.x) > Mathf.Epsilon;
-        if (horizontalMovement)
-        {
+        if (horizontalMovement) {
             transform.localScale = new Vector2(Mathf.Sign(playerRb.velocity.x), 1f);
         }
     }
