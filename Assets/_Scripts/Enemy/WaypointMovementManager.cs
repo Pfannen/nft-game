@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WaypointMovementManager : MonoBehaviour {
     [SerializeField] Waypoint waypoint;
+    [SerializeField] float distanceTolerance = .1f;
 
     private EnemyMovement mover;
     private Vector2 curWaypoint;
@@ -19,7 +20,7 @@ public class WaypointMovementManager : MonoBehaviour {
     }
 
     private void ProcessWaypoint() {
-        if (Mathf.Abs(transform.position.x - curWaypoint.x) < .1) {
+        if (Mathf.Abs(transform.position.x - curWaypoint.x) < distanceTolerance) {
             curWaypoint = waypoint.GetNextWaypoint(ref curWaypointIndex, ref waypointDirection);
             if (ShouldSwapDirection()) mover.SwapMoveSpeed();
         }

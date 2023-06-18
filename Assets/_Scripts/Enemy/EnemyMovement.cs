@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovement : MonoBehaviour {
     [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float jumpRaycastDenominator = 1f;
     [SerializeField] LayerMask jumpLayerMask;
     [SerializeField] BoxCollider2D feetCollider;
 
@@ -24,7 +25,7 @@ public class EnemyMovement : MonoBehaviour {
 
     private void DetectObstacles() {
         timeSinceJump += Time.deltaTime;
-        var hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, moveSpeed * 1.1f, jumpLayerMask);
+        var hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, moveSpeed / jumpRaycastDenominator, jumpLayerMask);
         if (hit.collider != null) Jump();
     }
 
@@ -59,9 +60,9 @@ public class EnemyMovement : MonoBehaviour {
         rb.velocity = new Vector2(rb.velocity.x * -1, 0);
     } */
 
-/*     private void OnDrawGizmos() {
+    private void OnDrawGizmos() {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * moveSpeed * 1.1f * transform.localScale.x);
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * moveSpeed / jumpRaycastDenominator * transform.localScale.x);
         Gizmos.DrawLine(feetCollider.bounds.center, feetCollider.bounds.center + Vector3.down * ((feetCollider.bounds.size.y / 2) + .03f));
-    }  */
+    } 
 }
