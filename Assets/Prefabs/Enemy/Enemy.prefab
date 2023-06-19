@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 1407907591309086534}
   m_Layer: 7
   m_Name: Shoot
-  m_TagString: Untagged
+  m_TagString: Shoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407907591309086535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.261, y: -0.27, z: 0}
+  m_LocalPosition: {x: 0.49, y: -0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -547,6 +547,8 @@ GameObject:
   - component: {fileID: 1407907592462926130}
   - component: {fileID: 1407907592462926131}
   - component: {fileID: 1407907592462926132}
+  - component: {fileID: 1885174686}
+  - component: {fileID: 2684843015910980224}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -677,7 +679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c052b55ea2f624a8a80691fbf06cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.44
+  moveSpeed: 1
+  jumpRaycastDenominator: 2
   jumpLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -695,3 +698,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoint: {fileID: 0}
+  distanceTolerance: 1.01
+--- !u!114 &1885174686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407907592462926139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566d76670b43f454784d89ad24c58958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 8249807630c1b324fad2ebb426c129f9, type: 2}
+  weaponSpawnLocation: {fileID: 1407907591309086534}
+  target: {fileID: 0}
+--- !u!114 &2684843015910980224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407907592462926139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608dadd78a7834e4aac02cb520d41869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  chaseDistance: 10
+  waitAfterOutOfRange: 1

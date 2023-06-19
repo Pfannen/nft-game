@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
-    [SerializeField] float damage = 1f;
+    [SerializeField] protected float damage = 1f;
     [SerializeField] bool isHoming = false;
     [SerializeField] bool destroyOnCollision = true;
     [SerializeField] float destroyTime = 2f;
@@ -21,17 +21,11 @@ public class Projectile : MonoBehaviour
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("Collision");
-        if (other.gameObject.TryGetComponent<HealthManager>(out HealthManager hM)) {
-            hM.TakeHealth(damage);
-            Debug.Log(hM.Health);
-        }
+        if (other.gameObject.TryGetComponent<HealthManager>(out HealthManager hM)) hM.TakeHealth(damage);
         if (destroyOnCollision) Destroy(gameObject);
     }
 
     protected virtual void OnDestroy() {
-        if (destroyVfx != null) {
-            Instantiate(destroyVfx, transform.position, Quaternion.identity);
-        }
+        if (destroyVfx != null) Instantiate(destroyVfx, transform.position, Quaternion.identity);
     }
 }

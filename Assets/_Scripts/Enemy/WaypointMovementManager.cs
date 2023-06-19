@@ -8,11 +8,26 @@ public class WaypointMovementManager : MonoBehaviour {
     private Vector2 curWaypoint;
     private int curWaypointIndex = 0;
     private int waypointDirection = 1;
+    bool afterDisable = false;
+
+    void Awake() {
+        mover = GetComponent<EnemyMovement>();
+    }
 
     void Start() {
-        mover = GetComponent<EnemyMovement>();
         curWaypoint = waypoint.GetWaypointAtIndex(curWaypointIndex);
-        if (ShouldSwapDirection()) mover.SwapMoveSpeed();
+        mover.MoveTowardsPosition(curWaypoint);
+    }
+
+    void OnEnable() {
+        if (afterDisable) {
+            mover.StartMoving(curWaypoint.x - transform.position.x);
+            Debug.Log("MOVING: " + (curWaypoint.x - transform.position.x));
+        }
+    }
+
+    void OnDisable() {
+        afterDisable = true;
     }
 
     void Update() {
@@ -22,11 +37,7 @@ public class WaypointMovementManager : MonoBehaviour {
     private void ProcessWaypoint() {
         if (Mathf.Abs(transform.position.x - curWaypoint.x) < distanceTolerance) {
             curWaypoint = waypoint.GetNextWaypoint(ref curWaypointIndex, ref waypointDirection);
-            if (ShouldSwapDirection()) mover.SwapMoveSpeed();
+            mover.MoveTowardsPosition(curWaypoint);
         }
-    }
-
-    private bool ShouldSwapDirection() {
-        return mover.GetVelocityDirection() != Mathf.Sign(curWaypoint.x - transform.position.x);
     }
 }

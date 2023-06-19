@@ -654,14 +654,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1407907591309086534, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407907591309086535, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
-      propertyPath: m_TagString
-      value: Shoot
-      objectReference: {fileID: 0}
+    - target: {fileID: 1885174686, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1857805364}
     - target: {fileID: 1407907592462926128, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -706,29 +702,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1407907592462926131, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
-      propertyPath: moveSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1407907592462926131, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
-      propertyPath: jumpRaycastDenominator
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1407907592462926132, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
       propertyPath: waypoint
       value: 
       objectReference: {fileID: 1054561605}
-    - target: {fileID: 1407907592462926132, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
-      propertyPath: distanceTolerance
-      value: 1.01
-      objectReference: {fileID: 0}
     - target: {fileID: 1407907592462926139, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 1407907592462926139, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 2684843015910980224, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1857805364}
+    - target: {fileID: 2684843015910980224, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
+      propertyPath: chaseDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684843015910980224, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
+      propertyPath: waitAfterOutOfRange
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
@@ -800,11 +792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fab0be3b5e692247965ea1515f58a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1349091778 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1407907591309086534, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
-  m_PrefabInstance: {fileID: 989424544}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1409835668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,8 +1227,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630704490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0036, y: -0.6562, z: 0}
-  m_LocalScale: {x: 18.4527, y: 1.2723, z: 1}
+  m_LocalPosition: {x: -0.0898, y: -0.5556, z: 0}
+  m_LocalScale: {x: 48.57889, y: 1.071088, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1671,26 +1658,6 @@ MonoBehaviour:
   m_CategoryHash: 0
   m_labelHash: 0
   m_SpriteKey: 0
---- !u!1 &1885174677 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1407907592462926139, guid: 3da3bf69d9cfc1a4eb001fcd7d78805d, type: 3}
-  m_PrefabInstance: {fileID: 989424544}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1885174686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885174677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566d76670b43f454784d89ad24c58958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 8249807630c1b324fad2ebb426c129f9, type: 2}
-  weaponSpawnLocation: {fileID: 1349091778}
-  target: {fileID: 1857805364}
 --- !u!1 &2012640399
 GameObject:
   m_ObjectHideFlags: 0

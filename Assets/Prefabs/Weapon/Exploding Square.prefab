@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 1
+  damage: 20
   isHoming: 0
   destroyOnCollision: 0
   destroyTime: 2
@@ -156,7 +156,7 @@ MonoBehaviour:
   destroyVfx: {fileID: 5898598155804651008, guid: 545ae1762e8e23f46a09314785e8dd69, type: 3}
   explosionRadius: 5
   miniExplosives: 0
-  explosionImpact: 5
+  explosionImpact: 0
   explosionLayerMask:
     serializedVersion: 2
     m_Bits: 128

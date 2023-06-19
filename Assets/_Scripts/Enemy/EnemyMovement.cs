@@ -38,21 +38,35 @@ public class EnemyMovement : MonoBehaviour {
         }
     }
 
-    public void SwapMoveSpeed() {
-        baseVelocity.x *= -1;
+    private void SwapMoveSpeed() {
+        baseVelocity.x = moveSpeed * -1;
         SwapLocalScale();
-    }
-
-    public int GetVelocityDirection() {
-        return (int)Mathf.Sign(baseVelocity.x);
-    }
-
-    public void AddVelocity(Vector2 addVelocity) {
-        rb.velocity += addVelocity;
     }
 
     private void SwapLocalScale() {
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+    }
+    
+    private void AddVelocity(Vector2 addVelocity) {
+        rb.velocity += addVelocity;
+    }
+
+
+    public void StopMoving() {
+        baseVelocity.x = 0;
+    }
+
+    public void StartMoving(float dir) {
+        baseVelocity.x = moveSpeed * Mathf.Sign(dir);
+        if (Mathf.Sign(transform.localScale.x) != Mathf.Sign(dir)) SwapLocalScale();
+    }
+
+    public float GetVelocityDirection() {
+        return Mathf.Sign(baseVelocity.x);
+    }
+
+    public void MoveTowardsPosition(Vector2 position) {
+        if (GetVelocityDirection() != Mathf.Sign(position.x - transform.position.x)) SwapMoveSpeed();
     }
 
     /* void OnTriggerExit2D(Collider2D other) {
