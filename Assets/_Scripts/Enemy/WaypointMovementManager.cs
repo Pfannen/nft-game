@@ -20,10 +20,7 @@ public class WaypointMovementManager : MonoBehaviour {
     }
 
     void OnEnable() {
-        if (afterDisable) {
-            mover.StartMoving(curWaypoint.x - transform.position.x);
-            Debug.Log("MOVING: " + (curWaypoint.x - transform.position.x));
-        }
+        if (afterDisable) mover.MoveTowardsPosition(curWaypoint);
     }
 
     void OnDisable() {

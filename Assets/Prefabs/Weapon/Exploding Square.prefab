@@ -150,7 +150,7 @@ MonoBehaviour:
   speed: 1
   damage: 20
   isHoming: 0
-  destroyOnCollision: 0
+  destroyOnCollision: 1
   destroyTime: 2
   initialImpulse: {x: 0, y: 0}
   destroyVfx: {fileID: 5898598155804651008, guid: 545ae1762e8e23f46a09314785e8dd69, type: 3}

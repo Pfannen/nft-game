@@ -3,6 +3,7 @@ using UnityEngine;
 public class TargetChaser : MonoBehaviour {
     [SerializeField] Transform target;
     [SerializeField] float chaseDistance = 10f;
+    [SerializeField] float targetDistanceTolerance = 1f;
     [SerializeField] float waitAfterOutOfRange = 1f;
 
     EnemyMovement mover;
@@ -17,7 +18,8 @@ public class TargetChaser : MonoBehaviour {
     }
 
     void Update() {
-        if (Vector2.Distance(target.transform.position, transform.position) < chaseDistance) ChaseTarget();
+        float distance = Vector2.Distance(target.transform.position, transform.position);
+        if (distance <= chaseDistance) ChaseTarget(distance);
         else {
             timeSinceChase += Time.deltaTime;
             if (timeSinceChase > waitAfterOutOfRange) SetWaypointManagerActive(true);
@@ -25,10 +27,11 @@ public class TargetChaser : MonoBehaviour {
         }
     }
 
-    void ChaseTarget() {
+    void ChaseTarget(float distance) {
         SetWaypointManagerActive(false);
         timeSinceChase = 0;
-        mover.MoveTowardsPosition(target.position);
+        if (distance <= targetDistanceTolerance) mover.StopMoving();
+        else mover.MoveTowardsPosition(target.position);
     }
 
     void SetWaypointManagerActive(bool active) {

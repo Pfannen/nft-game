@@ -38,27 +38,23 @@ public class EnemyMovement : MonoBehaviour {
         }
     }
 
-    private void SwapMoveSpeed() {
-        baseVelocity.x = moveSpeed * -1;
-        SwapLocalScale();
+    private void SetMoveSpeedSign(int sign) {
+        if ((int)Mathf.Sign(baseVelocity.x) != sign) baseVelocity.x *= -1;
+        MatchLocalScaleToVelocityDirection();
     }
 
-    private void SwapLocalScale() {
-        transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+    private void MatchLocalScaleToVelocityDirection() {
+        if (Mathf.Sign(transform.localScale.x) != Mathf.Sign(baseVelocity.x)) {
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        }
     }
     
     private void AddVelocity(Vector2 addVelocity) {
         rb.velocity += addVelocity;
     }
 
-
     public void StopMoving() {
         baseVelocity.x = 0;
-    }
-
-    public void StartMoving(float dir) {
-        baseVelocity.x = moveSpeed * Mathf.Sign(dir);
-        if (Mathf.Sign(transform.localScale.x) != Mathf.Sign(dir)) SwapLocalScale();
     }
 
     public float GetVelocityDirection() {
@@ -66,7 +62,8 @@ public class EnemyMovement : MonoBehaviour {
     }
 
     public void MoveTowardsPosition(Vector2 position) {
-        if (GetVelocityDirection() != Mathf.Sign(position.x - transform.position.x)) SwapMoveSpeed();
+        if (baseVelocity.x == 0) baseVelocity.x = moveSpeed;
+        SetMoveSpeedSign((int)Mathf.Sign(position.x - transform.position.x));
     }
 
     /* void OnTriggerExit2D(Collider2D other) {
