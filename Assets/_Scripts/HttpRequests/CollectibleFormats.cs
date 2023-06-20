@@ -1,10 +1,10 @@
 namespace HttpRequests.CollectibleFormats {
     public class TokenBody {
-        public int accountId;
+        public string session;
         public UserToken[] tokens;
 
-        public TokenBody(int accountId, UserToken[] tokens) {
-            this.accountId = accountId;
+        public TokenBody(string session, UserToken[] tokens) {
+            this.session = session;
             this.tokens = tokens;
         }
     }
