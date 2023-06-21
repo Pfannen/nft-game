@@ -220,9 +220,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4209831298176338540}
-  - component: {fileID: 2170951627187316203}
+  - component: {fileID: 8912620964314109387}
   m_Layer: 5
-  m_Name: Coin
+  m_Name: Token
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,7 +250,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 243.9499, y: 117.26}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2170951627187316203
+--- !u!114 &8912620964314109387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4209831298176338539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc6383bf09809244af241abc7b9f53e, type: 3}
+  m_Script: {fileID: 11500000, guid: 92d8ba0479a8c9946b80755fa79e2a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 4209831297465131104}
