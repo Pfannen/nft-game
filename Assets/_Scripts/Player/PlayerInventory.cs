@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using HttpRequests.CollectibleFormats;
 using UnityEngine;
@@ -7,16 +8,19 @@ public class PlayerInventory : MonoBehaviour {
     Dictionary<int, int> claimedCollectibles = new Dictionary<int, int>();
     Dictionary<int, int> unclaimedCollectibles = new Dictionary<int, int>();
 
+    public Dictionary<int,int> PlayerCollectibles => claimedCollectibles;
+    public event Action CollectiblesUpdated;
+
     void Awake() {
         //Create 'Collectible' class and store player collectibles in 'playerCollectibles'
         GetCollectibleBalances();
     }
 
-    void Start() {
+    /* void Start() {
         var inventories = FindObjectsOfType<PlayerInventory>();
         if (inventories.Length == 1) DontDestroyOnLoad(gameObject);
         else Destroy(gameObject);
-    }
+    } */
 
     void Update() {
         if (Input.GetKeyDown("c")) ClaimCollectibles();
@@ -55,6 +59,7 @@ public class PlayerInventory : MonoBehaviour {
     private void UpdateUnclaimedCollectibles(int collectibleId, int amount) {
         if (unclaimedCollectibles.ContainsKey(collectibleId)) unclaimedCollectibles[collectibleId] += amount;
         else unclaimedCollectibles.Add(collectibleId, amount);
+        CollectiblesUpdated?.Invoke();
     }
 
     private void UpdateClaimedCollectibles(UserToken[] playerTokens, bool addToCurrent) {
@@ -69,6 +74,7 @@ public class PlayerInventory : MonoBehaviour {
                 else claimedCollectibles.Add(token.tokenId, token.amount);
             }
         }
+        CollectiblesUpdated?.Invoke();
         //LogCollectibles();
     }
 
