@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using Web3Helpers;
 
 [CreateAssetMenu(fileName = "RequestSO", menuName = "Macho/RequestSO", order = 0)]
 public class RequestSO : ScriptableObject {
@@ -16,22 +17,22 @@ public class RequestSO : ScriptableObject {
 
     private void OnValidate() {
         if (path == null) return;
-        Debug.Log(DataFetcher.Smols?[0].tokenId);
+        Debug.Log(CollectionFetcher.Smols?[0].tokenId);
         if (File.Exists(path + "/Smols.smol")) {
-            if (DataFetcher.Smols == null) ReadSmols();
+            if (CollectionFetcher.Smols == null) ReadSmols();
         }
         else FetchAndSerializeSmols();
         //LoopThroughSmols();
     }
 
     async void FetchAndSerializeSmols() {
-        await DataFetcher.FetchSmols("0xbE8Caf82259D44EeCd0A6BcdB82655a4F6711b1A");
+        await CollectionFetcher.FetchSmols("0xbE8Caf82259D44EeCd0A6BcdB82655a4F6711b1A");
         SerializeSmols();
     }
 
     void LoopThroughSmols() {
-        if (DataFetcher.Smols != null) {
-            foreach(Smol smol in DataFetcher.Smols) Debug.Log(smol.tokenId);
+        if (CollectionFetcher.Smols != null) {
+            foreach(Smol smol in CollectionFetcher.Smols) Debug.Log(smol.tokenId);
         }
     }
 
@@ -39,16 +40,16 @@ public class RequestSO : ScriptableObject {
         using (FileStream stream = new(path + "/Smols.smol", FileMode.Open)) {
             BinaryFormatter bF = new();
             Smol[] smols = bF.Deserialize(stream) as Smol[];
-            DataFetcher.SetSmols(smols);
+            CollectionFetcher.SetSmols(smols);
             Debug.Log("Read");
-            OnSetSmol?.Invoke(DataFetcher.Smols[0]);
+            OnSetSmol?.Invoke(CollectionFetcher.Smols[0]);
         }
     }
 
     void SerializeSmols() {
         using (FileStream stream = new(path + "/Smols.smol", FileMode.Create)) {
             BinaryFormatter bF = new();
-            bF.Serialize(stream, DataFetcher.Smols);
+            bF.Serialize(stream, CollectionFetcher.Smols);
         }
     }
 }

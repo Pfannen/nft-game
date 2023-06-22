@@ -1,29 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
+using Web3Helpers;
 
 public class SpriteController : MonoBehaviour {
+    private static Attributes defaultAttributes = new Attributes();
+    public static Attributes SelectedOutfit { get; set; } = defaultAttributes;
+
     [SerializeField] RequestSO request;
     SpriteResolver[] resolvers;
     int curFit = 0;
 
     void Start() {
         resolvers = GetComponentsInChildren<SpriteResolver>();
-        SetSmolOutfit(DataFetcher.Smols?[curFit]);
-        request.OnSetSmol += SetSmolOutfit;
+        SetOutfit(SelectedOutfit);
     }
 
     void Update() {
         if (Input.GetKeyDown("l")) {
             curFit++;
             if (curFit >= 6) curFit = 0;
-            SetSmolOutfit(DataFetcher.Smols[curFit]);
+            SetOutfit(CollectionFetcher.Smols[curFit].attributes);
         }
     }
 
-    public void SetSmolOutfit(Smol smol) {
-        if (smol == null) return;
-        Attributes attributes = smol.attributes;
+    public void SetOutfit(Attributes attributes) {
+        if (attributes == null) return;
         resolvers[0].SetCategoryAndLabel("Hat", attributes.Hat);
         resolvers[1].SetCategoryAndLabel("Eye", attributes.Glasses);
         resolvers[2].SetCategoryAndLabel("Body", attributes.Body);

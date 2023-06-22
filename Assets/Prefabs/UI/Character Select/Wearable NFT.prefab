@@ -315,8 +315,9 @@ GameObject:
   - component: {fileID: 5297830361866754144}
   - component: {fileID: 5297830361866754146}
   - component: {fileID: 5297830361866754147}
+  - component: {fileID: 496587805751706727}
   m_Layer: 5
-  m_Name: Grid Element
+  m_Name: Wearable NFT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,6 +386,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &496587805751706727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5297830361866754145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38feb3fcc13db94eaf19888dcc2b82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7926230432635764664
 GameObject:
   m_ObjectHideFlags: 0
