@@ -19,8 +19,7 @@ public class FungibleTokenUIManager : MonoBehaviour {
         foreach(var pair in inventory.PlayerCollectibles) {
             Sprite img = Resources.Load<Sprite>($"Tokens/{pair.Key}");
             var tokenUI = Instantiate(tokenPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
-            tokenUI.SetText('x' + pair.Value.ToString());
-            if (img != null) tokenUI.SetImage(img);
+            tokenUI.Initialize(pair.Key, img, " x" + pair.Value.ToString());
         }
     }
 }

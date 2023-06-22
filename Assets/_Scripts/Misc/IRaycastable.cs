@@ -1,0 +1,3 @@
+interface IRaycastable {
+    void OnRaycast();
+}

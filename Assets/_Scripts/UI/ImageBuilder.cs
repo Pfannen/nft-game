@@ -5,10 +5,9 @@ using UnityEngine.UI;
 public class ImageBuilder : MonoBehaviour {
     [SerializeField] GameObject prefab;
     [SerializeField] RequestSO request;
-    SpriteLibrary library;
+    [SerializeField] SpriteLibraryAsset library;
 
     void Start() {
-        library = GetComponent<SpriteLibrary>();
         request.ReadSmols();
         for(int i = 0; i < 6; i++) SetImage(DataFetcher.Smols[i]);
     }
