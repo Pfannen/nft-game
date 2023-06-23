@@ -5,15 +5,21 @@ using Web3Helpers;
 
 public class SpriteController : MonoBehaviour {
     private static Attributes defaultAttributes = new Attributes();
-    public static Attributes SelectedOutfit { get; set; } = defaultAttributes;
 
     [SerializeField] RequestSO request;
     SpriteResolver[] resolvers;
+    EquipmentManager equipmentManager;
     int curFit = 0;
 
-    void Start() {
+    void Awake() {
+        equipmentManager = GetComponent<EquipmentManager>();
         resolvers = GetComponentsInChildren<SpriteResolver>();
-        SetOutfit(SelectedOutfit);
+    }
+
+    void Start() {
+        var outfit = equipmentManager.GetEquipment(EquipmentType.Outfit) as Attributes;
+        if (outfit == null) SetOutfit(defaultAttributes);
+        else SetOutfit(outfit);
     }
 
     void Update() {

@@ -1,9 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Web3Helpers;
 using UnityEngine.SceneManagement;
 
 public class Tooltip : MonoBehaviour {
@@ -12,6 +10,7 @@ public class Tooltip : MonoBehaviour {
     [SerializeField] TMP_Text buttonText;
     [SerializeField] float descriptionPadding = 4f;
     [SerializeField] float descriptionButtonGap = 20f;
+    [SerializeField] EquipmentManager equipmentManager;
 
     RectTransform parentTransform;
     Vector2 buttonDimensions = new Vector2(0,0);
@@ -21,8 +20,7 @@ public class Tooltip : MonoBehaviour {
         parentTransform = GetComponent<RectTransform>();
         var buttonTransform = button.GetComponent<RectTransform>();
         buttonDimensions = new Vector2(buttonTransform.sizeDelta.x, buttonTransform.sizeDelta.y);
-        SetDescription("fjdsklfjas;lkfj ldfj asfj aksf ;asfsad fdsa ");
-        EnableButton("Equip", () => { Debug.Log("Attempting to equip item"); }, false);
+        DisableTextAndButton();
     }
 
     void OnEnable() {
@@ -34,15 +32,16 @@ public class Tooltip : MonoBehaviour {
     }
 
     public void SetDescription(string text) {
+        description.gameObject.SetActive(true);
         description.text = text;
         parentTransform.sizeDelta = new Vector2(350 + descriptionPadding * 2, description.preferredHeight + (descriptionPadding * 2));
         description.rectTransform.sizeDelta = new Vector2(350, description.preferredHeight);
         DisableButton();
     }
 
-    public void EnableButton(string text, UnityAction onButtonClick, bool buttonIsClicked) {
+    public void SetButton(string text, UnityAction onButtonClick, bool buttonIsClicked) {
+        if (!button.gameObject.activeSelf) parentTransform.sizeDelta += new Vector2(0, buttonDimensions.y + descriptionButtonGap);
         button.gameObject.SetActive(true);
-        parentTransform.sizeDelta += new Vector2(0, buttonDimensions.y + descriptionButtonGap);
         if (buttonIsClicked) button.image.color = button.colors.disabledColor; 
         else button.image.color = button.colors.normalColor;
         buttonText.text = text;
@@ -52,16 +51,24 @@ public class Tooltip : MonoBehaviour {
 
     private void OnInventoryItemSelected(InventoryItemUI item) {
         if (current == item) {
-            //Hide children
+            DisableTextAndButton();
+            current = null;
+        } else {
+            current = item;
+            SetDescription(item.Description);
+            if (item.TryGetComponent<IEquippable>(out IEquippable equippableItem)) {
+                SetButton(equippableItem.IsEquipped(equipmentManager) ? "Play" : "Equip", 
+                    equippableItem.IsEquipped(equipmentManager) ? () => { SceneManager.LoadScene(1); } : () => {  equippableItem.Equip(equipmentManager); SetButton("Play", () => { SceneManager.LoadScene(1); }, false); }, 
+                    false);
+            }
+            var itemTransform = item.GetComponent<RectTransform>();
+            parentTransform.position = new Vector2(itemTransform.position.x, itemTransform.position.y - itemTransform.sizeDelta.y);
         }
-        current = item;
-        SetDescription(item.Description);
-        if (item is IEquippable equipableItem) {
-            EnableButton(equipableItem.IsEquipped() ? "Play" : "Equip", 
-                equipableItem.IsEquipped() ? () => { SceneManager.LoadScene(1); } : equipableItem.Equip, 
-                false);
-        }
-        parentTransform.position = item.gameObject.GetComponent<RectTransform>().position;
+    }
+
+    private void DisableTextAndButton() {
+        DisableButton();
+        DisableText();
     }
 
     private void DisableButton() {
@@ -69,5 +76,9 @@ public class Tooltip : MonoBehaviour {
             button.onClick.RemoveAllListeners();
             button.gameObject.SetActive(false);
         }
+    }
+
+    private void DisableText() {
+        description.gameObject.SetActive(false);
     }
 }

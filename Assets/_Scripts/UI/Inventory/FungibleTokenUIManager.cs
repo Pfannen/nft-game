@@ -28,6 +28,7 @@ public class FungibleTokenUIManager : MonoBehaviour {
         request.ReadSmols();
         for(int i = 0; i < 6; i++) {
             var obj = Instantiate(spriteBuilderPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
+            obj.gameObject.AddComponent<EquippableAttributes>().Attributes = CollectionFetcher.Smols[i].attributes;
             obj.InitializeAttributes(library, CollectionFetcher.Smols[i].attributes);
         } 
     }

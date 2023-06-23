@@ -11,6 +11,7 @@ public class BasicTokenUI : InventoryItemUI, IRaycastable {
         this.tokenId = tokenId;
         SetImage(image);
         SetText(text);
+        Description = $"This is token {tokenId}";
     }
 
     public void SetImage(Sprite image) {
@@ -23,6 +24,5 @@ public class BasicTokenUI : InventoryItemUI, IRaycastable {
 
     public void OnRaycast() {
         OnInventoryItemSelected(this);
-        Debug.Log($"Token id {tokenId} was selected");
     }
 }

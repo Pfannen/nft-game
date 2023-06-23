@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Macho/Weapon", order = 0)]
-public abstract class Weapon : ScriptableObject
+public abstract class Weapon : ScriptableObject, IEquippable
 {
     [SerializeField] GameObject prefab;
     [SerializeField] float damage = 1f;
@@ -20,4 +20,16 @@ public abstract class Weapon : ScriptableObject
     public AnimationClip[] Animations => animations;
 
     public abstract void Attack(Transform spawn, int dir);
+
+    public void Equip(EquipmentManager equipment) {
+        throw new NotImplementedException();
+    }
+
+    public bool IsEquipped(EquipmentManager equipment) {
+        throw new NotImplementedException();
+    }
+
+    public object ItemToEquip() {
+        throw new NotImplementedException();
+    }
 }

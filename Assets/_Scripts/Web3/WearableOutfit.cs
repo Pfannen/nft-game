@@ -18,7 +18,7 @@ namespace Web3Helpers {
             if (selectionMethod == OutfitSelectionMethod.Tooltip) {
                 OutfitClicked?.Invoke(this);
             } else {
-                SpriteController.SelectedOutfit = attributes;
+                //SpriteController.SelectedOutfit = attributes;
                 SceneManager.LoadScene(1);
                 Debug.Log(attributes.Body);
             }
