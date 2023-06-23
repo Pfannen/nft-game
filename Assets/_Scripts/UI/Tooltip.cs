@@ -15,6 +15,7 @@ public class Tooltip : MonoBehaviour {
 
     RectTransform parentTransform;
     Vector2 buttonDimensions = new Vector2(0,0);
+    InventoryItemUI current;
 
     void Start() {
         parentTransform = GetComponent<RectTransform>();
@@ -25,11 +26,11 @@ public class Tooltip : MonoBehaviour {
     }
 
     void OnEnable() {
-        WearableOutfit.OutfitClicked += OnOutfitClick;
+        InventoryItemUI.InventoryItemSelected += OnInventoryItemSelected;
     }
 
     void OnDisable() {
-        WearableOutfit.OutfitClicked -= OnOutfitClick;
+        InventoryItemUI.InventoryItemSelected -= OnInventoryItemSelected;
     }
 
     public void SetDescription(string text) {
@@ -49,14 +50,18 @@ public class Tooltip : MonoBehaviour {
         button.onClick.AddListener(onButtonClick);
     }
 
-    private void OnOutfitClick(WearableOutfit outfit) {
-        SetDescription(outfit.Attributes.Background);
-        if (SpriteController.SelectedOutfit == outfit.Attributes) {
-            EnableButton("Play", () => { SceneManager.LoadScene(1); }, false);
-        } else {
-            EnableButton("Equip", () => { SpriteController.SelectedOutfit = outfit.Attributes; EnableButton("Play", () => { SceneManager.LoadScene(1); }, false); }, false);
+    private void OnInventoryItemSelected(InventoryItemUI item) {
+        if (current == item) {
+            //Hide children
         }
-        parentTransform.position = outfit.gameObject.GetComponent<RectTransform>().position;
+        current = item;
+        SetDescription(item.Description);
+        if (item is IEquippable equipableItem) {
+            EnableButton(equipableItem.IsEquipped() ? "Play" : "Equip", 
+                equipableItem.IsEquipped() ? () => { SceneManager.LoadScene(1); } : equipableItem.Equip, 
+                false);
+        }
+        parentTransform.position = item.gameObject.GetComponent<RectTransform>().position;
     }
 
     private void DisableButton() {

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TokenUI : MonoBehaviour, IRaycastable {
+public class BasicTokenUI : InventoryItemUI, IRaycastable {
     [SerializeField] Image image;
     [SerializeField] TMP_Text text;
     private int tokenId = -1;
@@ -22,6 +22,7 @@ public class TokenUI : MonoBehaviour, IRaycastable {
     }
 
     public void OnRaycast() {
-        Debug.Log($"Token {tokenId} was selected");
+        OnInventoryItemSelected(this);
+        Debug.Log($"Token id {tokenId} was selected");
     }
 }
