@@ -28,33 +28,28 @@ public class FungibleTokenUIManager : MonoBehaviour {
         foreach(var pair in inventory.PlayerCollectibles) {
             var tokenUI = Instantiate(tokenPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
             InventoryItem item;
-            item = Resources.Load<InventoryItem>($"Inventory/{pair.Key}");
-            if (item == null) {
-                Sprite img = Resources.Load<Sprite>($"Tokens/{pair.Key}");
-                item = ScriptableObject.CreateInstance<InventoryItem>();
-                item.Initialize(img, $"Token {pair.Key}", "Some token", pair.Value, pair.Key);
-            } else item.SetAmount(pair.Value);
-            tokenUI.Initialize(item);
+            item = Resources.Load<InventoryItem>($"Inventory/Macho/{pair.Key}");
+            tokenUI.Initialize(item, pair.Value);
         }
         
         request.ReadSmols();
         EquippableAttributes[] smachos = Resources.LoadAll<EquippableAttributes>("Inventory/Smacho/");
         Dictionary<string, EquippableAttributes> storedSmachos = new Dictionary<string, EquippableAttributes>();
-        foreach (var smacho in smachos) storedSmachos.Add(smacho.name, smacho); 
-        Debug.Log(smachos.Length);
+        foreach (var smacho in smachos) storedSmachos.Add(smacho.name, smacho);  
+        
         foreach(Smol smacho in CollectionFetcher.Smols) {
             var obj = Instantiate(spriteBuilderPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
             if (storedSmachos.TryGetValue(smacho.tokenId, out EquippableAttributes smachoItem)) {
-                obj.Initialize(smachoItem);
+                obj.Initialize(smachoItem, 1);
                 obj.InitializeAttributes(smachoItem.Library, smachoItem.Attributes);
                 Debug.Log("Smacho found");
             } else {
                 var lib = smacho.attributes.Gender == "female" ? femaleSmachoLibrary : maleSmachoLibrary;
                 var item = ScriptableObject.CreateInstance<EquippableAttributes>();
                 item.SetAttributes(smacho.attributes, lib);
-                item.Initialize(null, "A token", $"Smol token {smacho.tokenId}", 1, Int32.Parse(smacho.tokenId));
+                item.Initialize(null, "A token", $"Smol token {smacho.tokenId}", "Smacho", Int32.Parse(smacho.tokenId));
                 AssetDatabase.CreateAsset(item, $"Assets/Resources/Inventory/Smacho/{smacho.tokenId}.asset");
-                obj.Initialize(item);
+                obj.Initialize(item, 1);
                 obj.InitializeAttributes(lib, smacho.attributes);
             }
         } 

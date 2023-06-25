@@ -15,7 +15,7 @@ MonoBehaviour:
   image: {fileID: 0}
   itemName: A token
   description: Smol token 10209
-  amount: 1
+  collectionName: Smacho
   equipmentType: 4
   attributes:
     Background: purple
@@ -27,12 +27,3 @@ MonoBehaviour:
     Mouth: gum
     Gender: female
   library: {fileID: 7108339969198208228, guid: 2c3b1ae867e45ae42be8a33f99001eab, type: 3}
-  outfit:
-    Background: purple
-    Body: olive
-    Clothes: fancy-dress
-    Glasses: sleep-mask
-    Hat: none
-    Hair: olive
-    Mouth: gum
-    Gender: female

@@ -11,7 +11,6 @@ public class EquippableItem : InventoryItem {
 
     public void EquipItem(EquipmentManager manager) {
         manager.SetEquipment(equipmentType, this);
-        Debug.Log(JsonUtility.ToJson(new Attributes()));
     }
 
     public bool IsEquipped(EquipmentManager manager) {

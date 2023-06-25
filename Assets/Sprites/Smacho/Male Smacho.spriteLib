@@ -98,8 +98,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: f4e39cedf3b3c1d46b75bde008f0eb33, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: f4e39cedf3b3c1d46b75bde008f0eb33, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 5
+    m_EntryOverrideCount: 6
   - m_Name: Glasses
     m_Hash: 958358346
     m_CategoryList: []
@@ -129,8 +134,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: 92678265a01e0fc4ea29df53677f80c8, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 92678265a01e0fc4ea29df53677f80c8, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 5
+    m_EntryOverrideCount: 6
   - m_Name: Hat
     m_Hash: 709290665
     m_CategoryList: []
@@ -185,8 +195,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: 31d390e24d657614a92f56bfd014e42d, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 31d390e24d657614a92f56bfd014e42d, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 10
+    m_EntryOverrideCount: 11
   - m_Name: Mouth
     m_Hash: 520385427
     m_CategoryList: []
@@ -211,6 +226,11 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: 4088e7febcd374e48bd3bd42ab8d9103, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 4088e7febcd374e48bd3bd42ab8d9103, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 4
+    m_EntryOverrideCount: 5
   m_PrimaryLibraryGUID: 

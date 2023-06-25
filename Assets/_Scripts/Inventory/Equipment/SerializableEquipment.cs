@@ -7,34 +7,30 @@ using UnityEngine;
 
 public class SerializableEquipment : EquipmentManager {
     void Awake() {
-        equipment = RetrieveDictionary();
+        RetrieveDictionary();
     }
 
-    private Dictionary<EquipmentType, EquippableItem> RetrieveDictionary() {
-        if (!File.Exists(Application.persistentDataPath + "/equipment.json")) return new Dictionary<EquipmentType, EquippableItem>();
-        string jsonString = File.ReadAllText(Application.persistentDataPath + "/equipment.json");
-        Debug.Log("Equipment retrieved");
-        var equipment = JsonConvert.DeserializeObject<Dictionary<EquipmentType, EquippableItem>>(jsonString);
-        return equipment;
-        /* if (!File.Exists(Application.persistentDataPath + "/equipment.equip")) return new Dictionary<EquipmentType, EquippableItem>();
+    private void RetrieveDictionary() {
+        if (!File.Exists(Application.persistentDataPath + "/equipment.equip")) return;
         using (FileStream stream = new(Application.persistentDataPath + "/equipment.equip", FileMode.Open)) {
             BinaryFormatter bF = new();
-            var equipment = bF.Deserialize(stream) as Dictionary<EquipmentType, EquippableItem>;
-            Debug.Log("Equipment retrieved");
-            return equipment;
-        } */
+            var equipmentToFilePath = bF.Deserialize(stream) as Dictionary<EquipmentType, string>;
+            foreach (var pair in equipmentToFilePath) {
+                EquippableItem item = Resources.Load<EquippableItem>(pair.Value);
+                SetEquipment(pair.Key, item);
+            }
+        }
     }
 
     private void SerializeDictionary() {
-        string jsonString = JsonConvert.SerializeObject(equipment);
-        Debug.Log(jsonString);
-        File.WriteAllText(Application.persistentDataPath + "/equipment.json", jsonString);
-        Debug.Log("Equipment JSONified");
-        /* using (FileStream stream = new(Application.persistentDataPath + "/equipment.equip", FileMode.Create)) {
+        using (FileStream stream = new(Application.persistentDataPath + "/equipment.equip", FileMode.Create)) {
             BinaryFormatter bF = new();
-            bF.Serialize(stream, equipment);
-            Debug.Log("Equipment serialized");
-        } */
+            var equipmentToFilePath = new Dictionary<EquipmentType, string>();
+            foreach (var pair in equipment) {
+                equipmentToFilePath.Add(pair.Key, $"Inventory/{pair.Value.CollectionName}/{pair.Value.name}");
+            }
+            bF.Serialize(stream, equipmentToFilePath);
+        }
     }
 
     void OnDestroy() {

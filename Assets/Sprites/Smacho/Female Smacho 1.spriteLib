@@ -108,8 +108,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: 35fdb8f18d427094691f17cf85a35ef4, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 35fdb8f18d427094691f17cf85a35ef4, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 7
+    m_EntryOverrideCount: 8
   - m_Name: Glasses
     m_Hash: 958358346
     m_CategoryList: []
@@ -139,8 +144,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: 2e4ee57f7eb5b784b9a97f89e7b7d291, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 2e4ee57f7eb5b784b9a97f89e7b7d291, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 5
+    m_EntryOverrideCount: 6
   - m_Name: Hair
     m_Hash: 1019596327
     m_CategoryList: []
@@ -195,8 +205,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: da1d5ae7acc58604d91e67136a78081a, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: da1d5ae7acc58604d91e67136a78081a, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 10
+    m_EntryOverrideCount: 11
   - m_Name: Hat
     m_Hash: 709290665
     m_CategoryList: []
@@ -231,8 +246,13 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: fe28aab2e0eaf1e47a07514c538d3ad9, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: fe28aab2e0eaf1e47a07514c538d3ad9, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 6
+    m_EntryOverrideCount: 7
   - m_Name: Mouth
     m_Hash: 520385427
     m_CategoryList: []
@@ -252,6 +272,11 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: 76afdb16e1e3cec47a909f1f2793ef59, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 76afdb16e1e3cec47a909f1f2793ef59, type: 3}
+    - m_Name: none
+      m_Hash: 1066401999
+      m_Sprite: {fileID: 0}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 0}
     m_FromMain: 0
-    m_EntryOverrideCount: 3
+    m_EntryOverrideCount: 4
   m_PrimaryLibraryGUID: 

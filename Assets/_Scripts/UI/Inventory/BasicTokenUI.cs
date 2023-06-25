@@ -6,11 +6,11 @@ public class BasicTokenUI : InventoryItemUI, IRaycastable {
     [SerializeField] Image image;
     [SerializeField] TMP_Text text;
 
-    public override void Initialize(InventoryItem inventoryItem)
+    public override void Initialize(InventoryItem inventoryItem, int amount)
     {
-        base.Initialize(inventoryItem);
+        base.Initialize(inventoryItem, amount);
         image.sprite = inventoryItem.Image;
-        text.text = " x" + inventoryItem.Amount;
+        text.text = " x" + amount;
     }
 
     /* public void Initialize(int tokenId, Sprite image, string text) {

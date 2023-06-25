@@ -15,7 +15,7 @@ MonoBehaviour:
   image: {fileID: 0}
   itemName: A token
   description: Smol token 3500
-  amount: 1
+  collectionName: Smacho
   equipmentType: 4
   attributes:
     Background: gray
@@ -27,12 +27,3 @@ MonoBehaviour:
     Mouth: pipe
     Gender: male
   library: {fileID: 7108339969198208228, guid: 7ef497c4955dff349a61e6a4ac69c70e, type: 3}
-  outfit:
-    Background: gray
-    Body: dark-brown
-    Clothes: prisoner
-    Glasses: none
-    Hat: none
-    Hair: none
-    Mouth: pipe
-    Gender: male
