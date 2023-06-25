@@ -13,6 +13,7 @@ public static class HttpRequest {
             while (!operation.isDone) await Task.Yield();
             if (webRequest.result != UnityWebRequest.Result.Success) throw new System.Exception(webRequest.error);
             var res = webRequest.downloadHandler.text;
+            var settings = new JsonSerializerSettings();
             return JsonConvert.DeserializeObject<T>(res);
         }
     }

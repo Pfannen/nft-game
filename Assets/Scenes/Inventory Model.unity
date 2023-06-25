@@ -249,7 +249,8 @@ MonoBehaviour:
   tokenPrefab: {fileID: 8912620964314109387, guid: d825c51459a1e64488390b952bddf754, type: 3}
   spriteBuilderPrefab: {fileID: 0}
   request: {fileID: 0}
-  library: {fileID: 0}
+  femaleSmachoLibrary: {fileID: 0}
+  maleSmachoLibrary: {fileID: 0}
 --- !u!1 &123112161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,7 +1257,8 @@ MonoBehaviour:
   tokenPrefab: {fileID: 1463326736777103880, guid: 88cf91bf67639e4448bf30c7eaa076b0, type: 3}
   spriteBuilderPrefab: {fileID: 3463008943652955357, guid: 2b6dddb9053db3f4d9fa71106f4dca28, type: 3}
   request: {fileID: 11400000, guid: 653455d9701390a41a54f83b547d3d98, type: 2}
-  library: {fileID: 7108339969198208228, guid: 0fa6afc565c791747a4c295873ffcc3b, type: 3}
+  femaleSmachoLibrary: {fileID: 7108339969198208228, guid: 2c3b1ae867e45ae42be8a33f99001eab, type: 3}
+  maleSmachoLibrary: {fileID: 7108339969198208228, guid: 7ef497c4955dff349a61e6a4ac69c70e, type: 3}
 --- !u!1 &1437000405
 GameObject:
   m_ObjectHideFlags: 0

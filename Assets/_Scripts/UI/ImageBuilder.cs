@@ -8,12 +8,16 @@ public static class ImageBuilder {
         if (attributes == null) return;
         Image[] childImages = parent.GetComponentsInChildren<Image>();
         childImages[1].sprite = library.GetSprite("Body", attributes.Body);
-        childImages[2].sprite = library.GetSprite("Eye", attributes.Glasses);
+        childImages[2].sprite = library.GetSprite("Glasses", attributes.Glasses);
         childImages[3].sprite = library.GetSprite("Hat", attributes.Hat);
-        childImages[4].sprite = library.GetSprite("Shirt", attributes.Clothes);
+        childImages[4].sprite = library.GetSprite("Clothes", attributes.Clothes);
         childImages[5].sprite = library.GetSprite("Mouth", attributes.Mouth);
         for(int i = 1; i < 6; i++) {
             if (childImages[i].sprite == null) childImages[i].color = new Color(0,0,0,0);
         }
+    }
+
+    public static Sprite BuildSpriteFromAttributes(Attributes attributes, SpriteLibraryAsset library) {
+        return null;
     }
 }

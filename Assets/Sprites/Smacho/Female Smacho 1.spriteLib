@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Body
+    m_Hash: 999990412
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: black
+      m_Hash: 159758888
+      m_Sprite: {fileID: 21300000, guid: f96f58fdb1e8f0b4fa7bde3bbb0c3386, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: f96f58fdb1e8f0b4fa7bde3bbb0c3386, type: 3}
+    - m_Name: blue
+      m_Hash: 506907316
+      m_Sprite: {fileID: 21300000, guid: 34739baed32c61a4e8e572d56bc5735d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 34739baed32c61a4e8e572d56bc5735d, type: 3}
+    - m_Name: brown
+      m_Hash: 756651092
+      m_Sprite: {fileID: 21300000, guid: 8db28a480663f3f45bc57acc7f405e83, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 8db28a480663f3f45bc57acc7f405e83, type: 3}
+    - m_Name: dark-brown
+      m_Hash: 122921672
+      m_Sprite: {fileID: 21300000, guid: 49a3ef985e01d174ba3491fc9c78ba13, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 49a3ef985e01d174ba3491fc9c78ba13, type: 3}
+    - m_Name: green
+      m_Hash: 278588961
+      m_Sprite: {fileID: 21300000, guid: 1d7a1e79c11f97847928cc2a28a912a7, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 1d7a1e79c11f97847928cc2a28a912a7, type: 3}
+    - m_Name: light-orange
+      m_Hash: 65250307
+      m_Sprite: {fileID: 21300000, guid: 585877bd6406de946add2ca7af9a3b92, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 585877bd6406de946add2ca7af9a3b92, type: 3}
+    - m_Name: olive
+      m_Hash: 789308466
+      m_Sprite: {fileID: 21300000, guid: ad643af27eacff241b786ab8936f7744, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: ad643af27eacff241b786ab8936f7744, type: 3}
+    - m_Name: pink
+      m_Hash: 744714710
+      m_Sprite: {fileID: 21300000, guid: b6bfb4341ee1d564a8d313188e3ed28e, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: b6bfb4341ee1d564a8d313188e3ed28e, type: 3}
+    - m_Name: purple
+      m_Hash: 713388774
+      m_Sprite: {fileID: 21300000, guid: 9699d7ed658b85d46ba4e1f27efa9ecb, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 9699d7ed658b85d46ba4e1f27efa9ecb, type: 3}
+    - m_Name: red
+      m_Hash: 979459983
+      m_Sprite: {fileID: 21300000, guid: 15ba4b5d2a4542640bab9dadb5d98de9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 15ba4b5d2a4542640bab9dadb5d98de9, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 10
+  - m_Name: Clothes
+    m_Hash: 1069845776
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: bra
+      m_Hash: 330206438
+      m_Sprite: {fileID: 21300000, guid: 236d9ee08be2ca6419e9b1e1206ba434, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 236d9ee08be2ca6419e9b1e1206ba434, type: 3}
+    - m_Name: coconut-bra
+      m_Hash: 486268556
+      m_Sprite: {fileID: 21300000, guid: de58dd04a5f396a44972b7435bcac906, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: de58dd04a5f396a44972b7435bcac906, type: 3}
+    - m_Name: fancy-dress
+      m_Hash: 188892741
+      m_Sprite: {fileID: 21300000, guid: 232ddcb3103daa34b91dc579befa5234, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 232ddcb3103daa34b91dc579befa5234, type: 3}
+    - m_Name: jacket
+      m_Hash: 504137097
+      m_Sprite: {fileID: 21300000, guid: 12c09377fe16b4644bf0263b52294ccd, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 12c09377fe16b4644bf0263b52294ccd, type: 3}
+    - m_Name: longsleeve
+      m_Hash: 936813153
+      m_Sprite: {fileID: 21300000, guid: de7d0f881b6ec324bb8aa8a1fc61fe53, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: de7d0f881b6ec324bb8aa8a1fc61fe53, type: 3}
+    - m_Name: suit
+      m_Hash: 698556190
+      m_Sprite: {fileID: 21300000, guid: be452b3eac7ae924793304d9c0ffee40, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: be452b3eac7ae924793304d9c0ffee40, type: 3}
+    - m_Name: sweater
+      m_Hash: 838471572
+      m_Sprite: {fileID: 21300000, guid: 35fdb8f18d427094691f17cf85a35ef4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 35fdb8f18d427094691f17cf85a35ef4, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 7
+  - m_Name: Glasses
+    m_Hash: 958358346
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: blue-lenses
+      m_Hash: 379442355
+      m_Sprite: {fileID: 21300000, guid: 9fcd9147f7e18484e9eb2c6c2b48227b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 9fcd9147f7e18484e9eb2c6c2b48227b, type: 3}
+    - m_Name: cyber-glasses
+      m_Hash: 758166214
+      m_Sprite: {fileID: 21300000, guid: 8d119c48f2f8578499302a13241e9f9d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 8d119c48f2f8578499302a13241e9f9d, type: 3}
+    - m_Name: sleep-mask
+      m_Hash: 696128408
+      m_Sprite: {fileID: 21300000, guid: 374f4bfc6ac0a0c48818ae48d3a43b09, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 374f4bfc6ac0a0c48818ae48d3a43b09, type: 3}
+    - m_Name: sunglasses
+      m_Hash: 711976790
+      m_Sprite: {fileID: 21300000, guid: 6e39c81a6e0585748af7ff5907be63ce, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 6e39c81a6e0585748af7ff5907be63ce, type: 3}
+    - m_Name: vr
+      m_Hash: 112712863
+      m_Sprite: {fileID: 21300000, guid: 2e4ee57f7eb5b784b9a97f89e7b7d291, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 2e4ee57f7eb5b784b9a97f89e7b7d291, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 5
+  - m_Name: Hair
+    m_Hash: 1019596327
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: black
+      m_Hash: 159758888
+      m_Sprite: {fileID: 21300000, guid: c557715df7b31a042b761a7eefbce9b8, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: c557715df7b31a042b761a7eefbce9b8, type: 3}
+    - m_Name: blue
+      m_Hash: 506907316
+      m_Sprite: {fileID: 21300000, guid: ff77ae13a1a0b3e46895048713147f1c, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: ff77ae13a1a0b3e46895048713147f1c, type: 3}
+    - m_Name: brown
+      m_Hash: 756651092
+      m_Sprite: {fileID: 21300000, guid: bc957d8a637c1204598c186a73a8fa44, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: bc957d8a637c1204598c186a73a8fa44, type: 3}
+    - m_Name: dark-brown
+      m_Hash: 122921672
+      m_Sprite: {fileID: 21300000, guid: 9fc0824b70dbc7a4d86f0b9d534ba0c2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 9fc0824b70dbc7a4d86f0b9d534ba0c2, type: 3}
+    - m_Name: green
+      m_Hash: 278588961
+      m_Sprite: {fileID: 21300000, guid: 4274d8b8df9d0fb4ea1546bea19bffdd, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 4274d8b8df9d0fb4ea1546bea19bffdd, type: 3}
+    - m_Name: light-orange
+      m_Hash: 65250307
+      m_Sprite: {fileID: 21300000, guid: d82bf7b497588084a981116c90de7126, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: d82bf7b497588084a981116c90de7126, type: 3}
+    - m_Name: olive
+      m_Hash: 789308466
+      m_Sprite: {fileID: 21300000, guid: c5ab016691fce464d86315f02ae0e7d2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: c5ab016691fce464d86315f02ae0e7d2, type: 3}
+    - m_Name: pink
+      m_Hash: 744714710
+      m_Sprite: {fileID: 21300000, guid: 0bdd594e32e6cb14ea41b6309aebfe62, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 0bdd594e32e6cb14ea41b6309aebfe62, type: 3}
+    - m_Name: purple
+      m_Hash: 713388774
+      m_Sprite: {fileID: 21300000, guid: 0cbd1b4602208a24dbb61483691427f4, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 0cbd1b4602208a24dbb61483691427f4, type: 3}
+    - m_Name: red
+      m_Hash: 979459983
+      m_Sprite: {fileID: 21300000, guid: da1d5ae7acc58604d91e67136a78081a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: da1d5ae7acc58604d91e67136a78081a, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 10
+  - m_Name: Hat
+    m_Hash: 709290665
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: beanie
+      m_Hash: 756597946
+      m_Sprite: {fileID: 21300000, guid: f662c67815a7d934eb675ac9a46e545a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: f662c67815a7d934eb675ac9a46e545a, type: 3}
+    - m_Name: cowboy-hat
+      m_Hash: 307126716
+      m_Sprite: {fileID: 21300000, guid: b31cff695c4efd04d913eb66c344eed2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: b31cff695c4efd04d913eb66c344eed2, type: 3}
+    - m_Name: crown
+      m_Hash: 276413924
+      m_Sprite: {fileID: 21300000, guid: 2a91c182843588f4187c543a7cfe847f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 2a91c182843588f4187c543a7cfe847f, type: 3}
+    - m_Name: old-visor
+      m_Hash: 473533862
+      m_Sprite: {fileID: 21300000, guid: 1ebc59407c9267f4497fa462dd4d2c14, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 1ebc59407c9267f4497fa462dd4d2c14, type: 3}
+    - m_Name: traffic-cone
+      m_Hash: 950940147
+      m_Sprite: {fileID: 21300000, guid: 53801c47f4119364d8f731bad1830768, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 53801c47f4119364d8f731bad1830768, type: 3}
+    - m_Name: visor
+      m_Hash: 1011346314
+      m_Sprite: {fileID: 21300000, guid: fe28aab2e0eaf1e47a07514c538d3ad9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: fe28aab2e0eaf1e47a07514c538d3ad9, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 6
+  - m_Name: Mouth
+    m_Hash: 520385427
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: cigarette
+      m_Hash: 727966204
+      m_Sprite: {fileID: 21300000, guid: efabcc9ce02a2c6498974b600c9ace41, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: efabcc9ce02a2c6498974b600c9ace41, type: 3}
+    - m_Name: gum
+      m_Hash: 328373473
+      m_Sprite: {fileID: 21300000, guid: 6232bed99b227f34c82bde180f714de2, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 6232bed99b227f34c82bde180f714de2, type: 3}
+    - m_Name: lipstick
+      m_Hash: 1056158629
+      m_Sprite: {fileID: 21300000, guid: 76afdb16e1e3cec47a909f1f2793ef59, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 76afdb16e1e3cec47a909f1f2793ef59, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 3
+  m_PrimaryLibraryGUID: 
