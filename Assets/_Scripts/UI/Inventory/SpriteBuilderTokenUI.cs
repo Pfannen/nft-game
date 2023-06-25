@@ -9,7 +9,6 @@ public class SpriteBuilderTokenUI : InventoryItemUI, IRaycastable {
         this.library = library;
         this.attributes = attributes;
         ImageBuilder.SetImages(this.gameObject, attributes, library);
-        Description = $"The background color is {attributes.Background}";
     }
 
     public void OnRaycast() {

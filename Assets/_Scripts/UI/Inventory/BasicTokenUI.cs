@@ -5,9 +5,15 @@ using TMPro;
 public class BasicTokenUI : InventoryItemUI, IRaycastable {
     [SerializeField] Image image;
     [SerializeField] TMP_Text text;
-    private int tokenId = -1;
 
-    public void Initialize(int tokenId, Sprite image, string text) {
+    public override void Initialize(InventoryItem inventoryItem)
+    {
+        base.Initialize(inventoryItem);
+        image.sprite = inventoryItem.Image;
+        text.text = " x" + inventoryItem.Amount;
+    }
+
+    /* public void Initialize(int tokenId, Sprite image, string text) {
         this.tokenId = tokenId;
         SetImage(image);
         SetText(text);
@@ -20,7 +26,7 @@ public class BasicTokenUI : InventoryItemUI, IRaycastable {
 
     public void SetText(string text) {
         this.text.text = text;
-    }
+    } */
 
     public void OnRaycast() {
         OnInventoryItemSelected(this);

@@ -21,13 +21,23 @@ public class FungibleTokenUIManager : MonoBehaviour {
 
     private void OnCollectiblesUpdated() {
         foreach(var pair in inventory.PlayerCollectibles) {
-            Sprite img = Resources.Load<Sprite>($"Tokens/{pair.Key}");
             var tokenUI = Instantiate(tokenPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
-            tokenUI.Initialize(pair.Key, img, " x" + pair.Value.ToString());
+            InventoryItem item;
+            item = Resources.Load<InventoryItem>($"Inventory/{pair.Key}");
+            if (item == null) {
+                Sprite img = Resources.Load<Sprite>($"Tokens/{pair.Key}");
+                item = ScriptableObject.CreateInstance<InventoryItem>();
+                item.Initialize(img, $"Token {pair.Key}", "Some token", pair.Value, pair.Key);
+            } else item.SetAmount(pair.Value);
+            tokenUI.Initialize(item);
         }
+        
         request.ReadSmols();
         for(int i = 0; i < 6; i++) {
             var obj = Instantiate(spriteBuilderPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
+            var item = ScriptableObject.CreateInstance<InventoryItem>();
+            item.Initialize(null, "A token", "Some token", 1, i);
+            obj.Initialize(item);
             obj.gameObject.AddComponent<EquippableAttributes>().Attributes = CollectionFetcher.Smols[i].attributes;
             obj.InitializeAttributes(library, CollectionFetcher.Smols[i].attributes);
         } 
