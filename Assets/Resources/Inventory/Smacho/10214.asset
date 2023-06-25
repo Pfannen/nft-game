@@ -17,6 +17,15 @@ MonoBehaviour:
   description: Smol token 10214
   amount: 1
   equipmentType: 4
+  attributes:
+    Background: yellow
+    Body: olive
+    Clothes: jacket
+    Glasses: cyber-glasses
+    Hat: cowboy-hat
+    Hair: olive
+    Mouth: none
+    Gender: female
   library: {fileID: 7108339969198208228, guid: 2c3b1ae867e45ae42be8a33f99001eab, type: 3}
   outfit:
     Background: yellow

@@ -15,22 +15,24 @@ namespace Web3Helpers {
         public Attributes attributes { get; set; }
     }
 
+    //Must be public fields instead of properties for proper value saving.
     [System.Serializable]
     public class Attributes {
-        public string Background { get; set; }
 
-        public string Body { get; set; } = "brown";
+        public string Background;
 
-        public string Clothes { get; set; }
+        public string Body;
 
-        public string Glasses { get; set; }
+        public string Clothes;
 
-        public string Hat { get; set; }
+        public string Glasses;
 
-        public string Hair { get; set; }
+        public string Hat;
 
-        public string Mouth { get; set; }
+        public string Hair;
 
-        public string Gender { get; set; }
+        public string Mouth;
+
+        public string Gender;
     }
 }
