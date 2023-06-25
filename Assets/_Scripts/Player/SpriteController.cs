@@ -17,9 +17,9 @@ public class SpriteController : MonoBehaviour {
     }
 
     void Start() {
-        var outfit = equipmentManager.GetEquipment(EquipmentType.Outfit) as Attributes;
+        var outfit = equipmentManager.GetEquipment(EquipmentType.Outfit) as EquippableAttributes;
         if (outfit == null) SetOutfit(defaultAttributes);
-        else SetOutfit(outfit);
+        else SetOutfit(outfit.Attributes);
     }
 
     void Update() {

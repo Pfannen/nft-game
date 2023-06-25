@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 [CreateAssetMenu(fileName = "InventoryItem", menuName = "Macho/Item", order = 0)]
 public class InventoryItem : ScriptableObject {
     [SerializeField] protected Sprite image;

@@ -35,10 +35,11 @@ public class FungibleTokenUIManager : MonoBehaviour {
         request.ReadSmols();
         for(int i = 0; i < 6; i++) {
             var obj = Instantiate(spriteBuilderPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
-            var item = ScriptableObject.CreateInstance<InventoryItem>();
+            var item = ScriptableObject.CreateInstance<EquippableAttributes>();
+            item.SetAttributes(CollectionFetcher.Smols[i].attributes);
+            item.SetEquipmentType(EquipmentType.Outfit);
             item.Initialize(null, "A token", "Some token", 1, i);
             obj.Initialize(item);
-            obj.gameObject.AddComponent<EquippableAttributes>().Attributes = CollectionFetcher.Smols[i].attributes;
             obj.InitializeAttributes(library, CollectionFetcher.Smols[i].attributes);
         } 
     }

@@ -57,9 +57,9 @@ public class Tooltip : MonoBehaviour {
             current = item;
             var actualItem = item.InventoryItem;
             SetDescription(actualItem.Description);
-            if (item.TryGetComponent<IEquippable>(out IEquippable equippableItem)) {
+            if (item.InventoryItem is EquippableItem equippableItem) {
                 SetButton(equippableItem.IsEquipped(equipmentManager) ? "Play" : "Equip", 
-                    equippableItem.IsEquipped(equipmentManager) ? () => { SceneManager.LoadScene(1); } : () => {  equippableItem.Equip(equipmentManager); SetButton("Play", () => { SceneManager.LoadScene(1); }, false); }, 
+                    equippableItem.IsEquipped(equipmentManager) ? () => { SceneManager.LoadScene(1); } : () => {  equippableItem.EquipItem(equipmentManager); SetButton("Play", () => { SceneManager.LoadScene(1); }, false); }, 
                     false);
             }
             var itemTransform = item.GetComponent<RectTransform>();
