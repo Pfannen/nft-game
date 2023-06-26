@@ -47,7 +47,7 @@ public class FungibleTokenUIManager : MonoBehaviour {
                 var lib = smacho.attributes.Gender == "female" ? femaleSmachoLibrary : maleSmachoLibrary;
                 var item = ScriptableObject.CreateInstance<EquippableAttributes>();
                 item.SetAttributes(smacho.attributes, lib);
-                item.Initialize(null, "A token", $"Smol token {smacho.tokenId}", "Smacho", Int32.Parse(smacho.tokenId));
+                item.Initialize(null, "A token", $"Smol token {smacho.tokenId}", CollectionIdentifier.Smol, Int32.Parse(smacho.tokenId));
                 AssetDatabase.CreateAsset(item, $"Assets/Resources/Inventory/Smacho/{smacho.tokenId}.asset");
                 obj.Initialize(item, 1);
                 obj.InitializeAttributes(lib, smacho.attributes);

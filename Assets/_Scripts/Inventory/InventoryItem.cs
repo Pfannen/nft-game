@@ -1,4 +1,5 @@
 using UnityEngine;
+using Web3Helpers;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "InventoryItem", menuName = "Macho/Item", order = 0)]
@@ -6,20 +7,20 @@ public class InventoryItem : ScriptableObject {
     [SerializeField] protected Sprite image;
     [SerializeField] protected string itemName;
     [SerializeField] protected string description;
-    [SerializeField] protected string collectionName;
+    [SerializeField] protected CollectionIdentifier collection;
     [SerializeField] protected int tokenId;
 
     public Sprite Image => image;
     public string ItemName => itemName;
     public string Description => description;
-    public string CollectionName => collectionName;
+    public CollectionIdentifier Collection => collection;
     public int TokenId => tokenId;
 
-    public void Initialize(Sprite image, string itemName, string description, string collectionName, int tokenId) {
+    public void Initialize(Sprite image, string itemName, string description, CollectionIdentifier collection, int tokenId) {
         this.image = image;
         this.itemName = itemName;
         this.description = description;
-        this.collectionName = collectionName;
+        this.collection = collection;
         this.tokenId = tokenId;
     }
 }

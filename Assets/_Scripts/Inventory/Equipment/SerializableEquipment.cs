@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
 using UnityEngine;
+using Web3Helpers;
 
 public class SerializableEquipment : EquipmentManager {
     void Awake() {
@@ -27,7 +29,7 @@ public class SerializableEquipment : EquipmentManager {
             BinaryFormatter bF = new();
             var equipmentToFilePath = new Dictionary<EquipmentType, string>();
             foreach (var pair in equipment) {
-                equipmentToFilePath.Add(pair.Key, $"Inventory/{pair.Value.CollectionName}/{pair.Value.name}");
+                equipmentToFilePath.Add(pair.Key, $"Inventory/{Enum.GetName(typeof(CollectionIdentifier), pair.Value.Collection)}/{pair.Value.name}");
             }
             bF.Serialize(stream, equipmentToFilePath);
         }
