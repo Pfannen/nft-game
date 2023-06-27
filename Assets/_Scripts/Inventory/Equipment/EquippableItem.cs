@@ -5,6 +5,8 @@ using Web3Helpers;
 public class EquippableItem : InventoryItem {
     [SerializeField] protected EquipmentType equipmentType;
 
+    public override bool UseTooltipButton => true;
+
     public void SetEquipmentType(EquipmentType equipmentType) {
         this.equipmentType = equipmentType;
     }

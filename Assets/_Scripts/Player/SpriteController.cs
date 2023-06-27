@@ -4,34 +4,46 @@ using UnityEngine.U2D.Animation;
 using Web3Helpers;
 
 public class SpriteController : MonoBehaviour {
-    private static Attributes defaultAttributes = new Attributes();
-
-    [SerializeField] RequestSO request;
-    [SerializeField] SpriteLibrary library;
-    SpriteResolver[] resolvers;
-    int curFit = 0;
-
-    [SerializeField] EquippableOutfit defaultOutfit;
+    [SerializeField] FashionOutfit defaultOutfit;
     [SerializeField] GameObject spritesHolder;
     [SerializeField] SpriteRenderer spriteGO;
-    EquipmentManager equipmentManager;
-    CollectionIdentifier equippedOutfitCollection = CollectionIdentifier.Smol;
+    FashionManager fashionManager;
     SpriteRenderer[] renderers;
 
     void Awake() {
-        equipmentManager = GetComponent<EquipmentManager>();
-        //resolvers = GetComponentsInChildren<SpriteResolver>();
-        DestroyChildObjects();
-        CreateRenderers(defaultOutfit.Collection);
-        SetOutfit(defaultOutfit);
+        fashionManager = GetComponent<FashionManager>();
     }
 
-    private void SetOutfit(EquippableOutfit outfit) {
-        if (equippedOutfitCollection != outfit.Collection) {
-            DestroyChildObjects();
-            CreateRenderers(outfit.Collection);
-            equippedOutfitCollection = outfit.Collection;
+    void OnEnable() {
+        if (fashionManager) {
+            fashionManager.ItemWorn += SetLayer;
+            fashionManager.ItemRemoved += SetLayerNull;
         }
+    }
+
+    void OnDisable() {
+        if (fashionManager) {
+            fashionManager.ItemWorn -= SetLayer;
+            fashionManager.ItemRemoved -= SetLayerNull;
+        }
+    }
+
+    void Start() {
+        DestroyChildObjects();
+        if (fashionManager) {
+            CreateRenderers(fashionManager.WearableCollection);
+            for (int i = 0; i < LayerHelper.NumLayers(fashionManager.WearableCollection); i++) {
+                var item = fashionManager.GetItem(i);
+                if (!item) SetLayerNull(i);
+                else SetLayer(item);
+            }
+        } else {
+            CreateRenderers(defaultOutfit.Collection);
+            SetOutfit(defaultOutfit);
+        }
+    }
+
+    private void SetOutfit(FashionOutfit outfit) {
         for (int i = 0; i < renderers.Length; i++) SetLayerNull(i);
         foreach (var layerItem in outfit.GetOutfitLayers()) SetLayer(layerItem);
     }
@@ -49,30 +61,11 @@ public class SpriteController : MonoBehaviour {
         }
     }
 
-    private bool SetLayer(EquippableLayerItem layerItem) {
-        if (equippedOutfitCollection != layerItem.Collection) return false;
+    private void SetLayer(FashionItem layerItem) {
         renderers[layerItem.LayerOrder].sprite = layerItem.Image;
-        return true;
     }
 
     private void SetLayerNull(int layer) {
         renderers[layer].sprite = null;
     }
-
-
-    /* void Start() {
-        var outfit = equipmentManager.GetEquipment(EquipmentType.Outfit) as EquippableAttributes;
-        if (outfit == null) SetOutfit(defaultAttributes, null);
-        else SetOutfit(outfit.Attributes, outfit.Library);
-    } */
-
-    /* public void SetOutfit(Attributes attributes, SpriteLibraryAsset libraryAsset) {
-        if (attributes == null) return;
-        if (libraryAsset != null) library.spriteLibraryAsset = libraryAsset;
-        resolvers[0].SetCategoryAndLabel("Hat", attributes.Hat);
-        resolvers[1].SetCategoryAndLabel("Glasses", attributes.Glasses);
-        resolvers[2].SetCategoryAndLabel("Body", attributes.Body);
-        resolvers[3].SetCategoryAndLabel("Mouth", attributes.Mouth);
-        resolvers[4].SetCategoryAndLabel("Clothes", attributes.Clothes);
-    } */
 }
