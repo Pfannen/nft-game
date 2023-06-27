@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c4c6f8d27a11340be054765bc1d176, type: 3}
+  m_Name: Default Outfit
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: ff85dd92a3552c74c89a37e2d213b3b6, type: 3}
+  itemName: Default Outfit
+  description: Default Outfit
+  collection: 1
+  tokenId: -1
+  equipmentType: 4
+  outfitLayers:
+  - {fileID: 11400000, guid: c8d221e1c674c444dbe8f4b971a92ffe, type: 2}
+  - {fileID: 11400000, guid: f4b3437f2bc9b3c42b9069f93e75d421, type: 2}
+  - {fileID: 11400000, guid: 381426dc539569145b0a36857e5d165b, type: 2}

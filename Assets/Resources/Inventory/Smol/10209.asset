@@ -15,7 +15,8 @@ MonoBehaviour:
   image: {fileID: 0}
   itemName: A token
   description: Smol token 10209
-  collectionName: Smacho
+  collection: 1
+  tokenId: 0
   equipmentType: 4
   attributes:
     Background: purple

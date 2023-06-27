@@ -33,7 +33,7 @@ public class FungibleTokenUIManager : MonoBehaviour {
         }
         
         request.ReadSmols();
-        EquippableAttributes[] smachos = Resources.LoadAll<EquippableAttributes>("Inventory/Smacho/");
+        EquippableAttributes[] smachos = Resources.LoadAll<EquippableAttributes>("Inventory/Smol/");
         Dictionary<string, EquippableAttributes> storedSmachos = new Dictionary<string, EquippableAttributes>();
         foreach (var smacho in smachos) storedSmachos.Add(smacho.name, smacho);  
         
@@ -43,15 +43,15 @@ public class FungibleTokenUIManager : MonoBehaviour {
                 obj.Initialize(smachoItem, 1);
                 obj.InitializeAttributes(smachoItem.Library, smachoItem.Attributes);
                 Debug.Log("Smacho found");
-            } else {
+            } /* else {
                 var lib = smacho.attributes.Gender == "female" ? femaleSmachoLibrary : maleSmachoLibrary;
                 var item = ScriptableObject.CreateInstance<EquippableAttributes>();
                 item.SetAttributes(smacho.attributes, lib);
                 item.Initialize(null, "A token", $"Smol token {smacho.tokenId}", CollectionIdentifier.Smol, Int32.Parse(smacho.tokenId));
-                AssetDatabase.CreateAsset(item, $"Assets/Resources/Inventory/Smacho/{smacho.tokenId}.asset");
+                AssetDatabase.CreateAsset(item, $"Assets/Resources/Inventory/Smol/{smacho.tokenId}.asset");
                 obj.Initialize(item, 1);
                 obj.InitializeAttributes(lib, smacho.attributes);
-            }
+            } */
         } 
     }
 }

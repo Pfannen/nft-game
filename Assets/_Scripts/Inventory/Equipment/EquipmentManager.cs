@@ -6,11 +6,13 @@ public class EquipmentManager : MonoBehaviour {
     protected Dictionary<EquipmentType, EquippableItem> equipment = new Dictionary<EquipmentType, EquippableItem>();
 
     public event Action EquipmentChanged;
+    public event Action<EquippableItem> OutfitChanged;
 
     public void SetEquipment(EquipmentType type, EquippableItem equippable) {
         if (equipment.ContainsKey(type)) equipment[type] = equippable;
         else equipment.Add(type, equippable);
-        EquipmentChanged?.Invoke();
+        if (type == EquipmentType.Outfit) OutfitChanged?.Invoke(equippable);
+        else EquipmentChanged?.Invoke();
     }
 
     public EquippableItem GetEquipment(EquipmentType type) {

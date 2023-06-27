@@ -19,4 +19,4 @@ MonoBehaviour:
   tokenId: -1
   equipmentType: 4
   layerName: Glasses
-  layerOrder: 2
+  layerOrder: 1

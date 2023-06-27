@@ -11,7 +11,7 @@ namespace Web3Helpers {
 
     public static class LayerHelper {
         public static int NumLayers(CollectionIdentifier collection) {
-            if (collection == CollectionIdentifier.Smol) return 7;
+            if (collection == CollectionIdentifier.Smol) return 5;
             if (collection == CollectionIdentifier.Macho) return 5;
             return -1;
         }

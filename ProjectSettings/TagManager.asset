@@ -42,18 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Body
+  - name: 0
     uniqueID: 206049695
     locked: 0
-  - name: Eye
+  - name: 1
     uniqueID: 4002713263
     locked: 0
-  - name: Shirt
+  - name: 2
     uniqueID: 762939507
     locked: 0
-  - name: Mouth
+  - name: 3
     uniqueID: 2552464203
     locked: 0
-  - name: Hat
+  - name: 4
     uniqueID: 2325697765
     locked: 0

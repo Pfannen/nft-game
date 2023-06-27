@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Web3Helpers;
 
-[CreateAssetMenu(fileName = "Layer Library", menuName = "Macho/Layer Library", order = 0)]
+[CreateAssetMenu(fileName = "Layer Library", menuName = "Macho/Wearables/Layer Library", order = 0)]
 public class LayerLibrary : ScriptableObject {
     [SerializeField] CollectionIdentifier collection;
     [SerializeField] ItemLayer[] layers;
