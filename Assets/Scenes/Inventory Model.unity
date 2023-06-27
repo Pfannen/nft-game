@@ -251,6 +251,8 @@ MonoBehaviour:
   request: {fileID: 0}
   femaleSmachoLibrary: {fileID: 0}
   maleSmachoLibrary: {fileID: 0}
+  mFL: {fileID: 0}
+  fFL: {fileID: 0}
 --- !u!1 &123112161
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +531,7 @@ GameObject:
   - component: {fileID: 687488973}
   - component: {fileID: 687488974}
   m_Layer: 0
-  m_Name: Serializable Inventory
+  m_Name: Serializable Equipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,6 +699,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723683901}
   m_CullTransparentMesh: 1
+--- !u!1 &756152237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756152239}
+  - component: {fileID: 756152240}
+  m_Layer: 0
+  m_Name: Serializable Fashion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756152239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756152237}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 880.83685, y: 507.0576, z: 8.133717}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756152240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756152237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d498f9438953e844da714d6a1985f21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &777574111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1305,8 @@ MonoBehaviour:
   request: {fileID: 11400000, guid: 653455d9701390a41a54f83b547d3d98, type: 2}
   femaleSmachoLibrary: {fileID: 7108339969198208228, guid: 2c3b1ae867e45ae42be8a33f99001eab, type: 3}
   maleSmachoLibrary: {fileID: 7108339969198208228, guid: 7ef497c4955dff349a61e6a4ac69c70e, type: 3}
+  mFL: {fileID: 11400000, guid: 7ca79d4997811d743b46801d6bb2fb83, type: 2}
+  fFL: {fileID: 11400000, guid: 4d2f1ef13b981244cbd961965d182599, type: 2}
 --- !u!1 &1437000405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,6 +1598,7 @@ MonoBehaviour:
   descriptionPadding: 4
   descriptionButtonGap: 20
   equipmentManager: {fileID: 687488974}
+  fashionManager: {fileID: 756152240}
 --- !u!1 &2004489218
 GameObject:
   m_ObjectHideFlags: 0

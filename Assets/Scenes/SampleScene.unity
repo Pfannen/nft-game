@@ -1548,6 +1548,7 @@ GameObject:
   - component: {fileID: 1857805366}
   - component: {fileID: 1857805367}
   - component: {fileID: 1857805376}
+  - component: {fileID: 1857805377}
   m_Layer: 7
   m_Name: Smol
   m_TagString: Untagged
@@ -1692,8 +1693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76e81abc57b59642b4f4b3237c4d559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  request: {fileID: 11400000, guid: 653455d9701390a41a54f83b547d3d98, type: 2}
-  library: {fileID: 1857805371}
   defaultOutfit: {fileID: 11400000, guid: 419bbe503f5307b4fad66ca361b838e3, type: 2}
   spritesHolder: {fileID: 2052539693}
   spriteGO: {fileID: 4546039136718079872, guid: a94dcad6db2660440af7b3907d6d7c40, type: 3}
@@ -1734,6 +1733,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8787965b3c657804ea419829a3852437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1857805377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857805363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d498f9438953e844da714d6a1985f21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1871544421

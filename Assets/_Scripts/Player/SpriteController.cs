@@ -62,6 +62,7 @@ public class SpriteController : MonoBehaviour {
     }
 
     private void SetLayer(FashionItem layerItem) {
+        Debug.Log(layerItem);
         renderers[layerItem.LayerOrder].sprite = layerItem.Image;
     }
 

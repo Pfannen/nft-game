@@ -18,4 +18,8 @@ public class EquippableItem : InventoryItem {
     public bool IsEquipped(EquipmentManager manager) {
         return manager.GetEquipment(equipmentType) == this;
     }
+
+    protected override void TooltipMethod() {
+        EquipItem(Tooltip.EquipmentManager);
+    }
 }

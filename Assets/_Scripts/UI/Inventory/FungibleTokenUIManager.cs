@@ -14,6 +14,9 @@ public class FungibleTokenUIManager : MonoBehaviour {
     PlayerInventory inventory;
     RectTransform tokenContainer;
 
+    [SerializeField] FashionLibrary mFL;
+    [SerializeField] FashionLibrary fFL;
+
     void Awake() {
         tokenContainer = GetComponent<RectTransform>();
         inventory = FindObjectOfType<PlayerInventory>();
@@ -33,25 +36,22 @@ public class FungibleTokenUIManager : MonoBehaviour {
         }
         
         request.ReadSmols();
-        EquippableAttributes[] smachos = Resources.LoadAll<EquippableAttributes>("Inventory/Smol/");
-        Dictionary<string, EquippableAttributes> storedSmachos = new Dictionary<string, EquippableAttributes>();
-        foreach (var smacho in smachos) storedSmachos.Add(smacho.name, smacho);  
-        
-        foreach(Smol smacho in CollectionFetcher.Smols) {
+
+        foreach (var smol in CollectionFetcher.Smols) {
+            var attr = smol.attributes;
+            var lib = attr.Gender == "male" ? mFL : fFL;
+            FashionItem[] items = new FashionItem[LayerHelper.NumLayers(CollectionIdentifier.Smol)];
+            items[0] = lib.GetLayerItem("Body", attr.Body);
+            items[1] = lib.GetLayerItem("Clothes", attr.Clothes);
+            items[2] = lib.GetLayerItem("Glasses", attr.Glasses);
+            items[3] = lib.GetLayerItem("Hat", attr.Hat);
+            items[4] = lib.GetLayerItem("Mouth", attr.Mouth);
+            FashionOutfit outfit = ScriptableObject.CreateInstance<FashionOutfit>();
+            outfit.SetOutfitLayers(items, lib);
+            outfit.Initialize(null, $"Smol {smol.tokenId}", items[0].ItemName, CollectionIdentifier.Smol, Int32.Parse(smol.tokenId));
             var obj = Instantiate(spriteBuilderPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
-            if (storedSmachos.TryGetValue(smacho.tokenId, out EquippableAttributes smachoItem)) {
-                obj.Initialize(smachoItem, 1);
-                obj.InitializeAttributes(smachoItem.Library, smachoItem.Attributes);
-                Debug.Log("Smacho found");
-            } /* else {
-                var lib = smacho.attributes.Gender == "female" ? femaleSmachoLibrary : maleSmachoLibrary;
-                var item = ScriptableObject.CreateInstance<EquippableAttributes>();
-                item.SetAttributes(smacho.attributes, lib);
-                item.Initialize(null, "A token", $"Smol token {smacho.tokenId}", CollectionIdentifier.Smol, Int32.Parse(smacho.tokenId));
-                AssetDatabase.CreateAsset(item, $"Assets/Resources/Inventory/Smol/{smacho.tokenId}.asset");
-                obj.Initialize(item, 1);
-                obj.InitializeAttributes(lib, smacho.attributes);
-            } */
-        } 
+            obj.Initialize(outfit, 1);
+            obj.InitializeAttributes(attr.Gender == "male" ? maleSmachoLibrary : femaleSmachoLibrary, attr);
+        }
     }
 }

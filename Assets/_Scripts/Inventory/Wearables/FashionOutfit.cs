@@ -6,17 +6,30 @@ using Web3Helpers;
 public class FashionOutfit : InventoryItem {
     bool outfitSet = false;
     [SerializeField] FashionItem[] outfitLayers;
+    [SerializeField] FashionLibrary fashionLibrary;
+
+    public FashionLibrary FashionLibrary => fashionLibrary;
+    public override bool UseTooltipButton => true;
 
     public void SetCollection(CollectionIdentifier collection) {
         this.collection = collection;
     }
 
-    public void SetOutfitLayers(FashionItem[] outfitLayers) {
+    public void SetOutfitLayers(FashionItem[] outfitLayers, FashionLibrary fashionLibrary) {
         if (!outfitSet) this.outfitLayers = outfitLayers;
         outfitSet = true;
+        this.fashionLibrary = fashionLibrary;
     }
 
     public IEnumerable<FashionItem> GetOutfitLayers() {
         return outfitLayers;
+    }
+
+    public void EquipOutfit(FashionManager manager) {
+        manager.WearOutfit(this);
+    }
+
+    protected override void TooltipMethod() {
+        EquipOutfit(Tooltip.FashionManager);
     }
 }

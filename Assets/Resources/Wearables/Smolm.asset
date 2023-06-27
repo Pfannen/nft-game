@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09661a884c0ce4e4fbfbda4dcc4cbbb6, type: 3}
+  m_Name: Smolm
+  m_EditorClassIdentifier: 
+  collection: 1
+  layers:
+  - name: Body
+    items:
+    - {fileID: 11400000, guid: 6faf1ecbe42ec214aa2659dbf22e6355, type: 2}
+    - {fileID: 11400000, guid: d8cb333db05ec9a4bb1bda09fff60810, type: 2}
+    - {fileID: 11400000, guid: 4e5c1f2cef2323f458d7a1d5b25e5a8e, type: 2}
+    - {fileID: 11400000, guid: 6f900cbaf5848cf43bd28421f32c686b, type: 2}
+    - {fileID: 11400000, guid: e352273a1291d8641a8d64cb83d3a41c, type: 2}
+    - {fileID: 11400000, guid: 89c59fa2187e3334ab965376acc24d97, type: 2}
+    - {fileID: 11400000, guid: f9efe373e95c45e4c90308ca15ed383f, type: 2}
+    - {fileID: 11400000, guid: 1689caadc29e20f42adeaa58f93bba7b, type: 2}
+    - {fileID: 11400000, guid: abe1a5c88a57ceb439204566186654c3, type: 2}
+    - {fileID: 11400000, guid: ae4b259fd42b35947b57794e9c3b1241, type: 2}
+  - name: Clothes
+    items:
+    - {fileID: 11400000, guid: ac802f7780e7a6645aa575d2f15c4eab, type: 2}
+    - {fileID: 11400000, guid: aea5fad9fdf1a884d96c33a23758a025, type: 2}
+    - {fileID: 11400000, guid: 8c621827573224d4f9eb2f70207b64db, type: 2}
+    - {fileID: 11400000, guid: a73ccc40b469f154e99b7dc7b87ee9dc, type: 2}
+    - {fileID: 11400000, guid: 5a6f7f5540c89f043a09446d10652696, type: 2}
+  - name: Glasses
+    items:
+    - {fileID: 11400000, guid: 02f5103ef801ac54fb25cc3c7660d47b, type: 2}
+    - {fileID: 11400000, guid: 3c773daaab16f9843824617e0730646b, type: 2}
+    - {fileID: 11400000, guid: 99712ba8ad39c8f47800bb4037cc62e9, type: 2}
+    - {fileID: 11400000, guid: 78ef6620971878c4683fe916c58a1536, type: 2}
+    - {fileID: 11400000, guid: 685ecabc9a66ef34cb39c5bf84e100b7, type: 2}
+  - name: Hat
+    items:
+    - {fileID: 11400000, guid: 07c81a36ed9c944489f4f334d2f0bfba, type: 2}
+    - {fileID: 11400000, guid: 194b85f57c417dd419aae2e86e140a7f, type: 2}
+    - {fileID: 11400000, guid: a43ffaeeb9f6df549b6c525f6832351b, type: 2}
+    - {fileID: 11400000, guid: 1302f9a2bb015f841a2d5dbec3e8ea2e, type: 2}
+    - {fileID: 11400000, guid: 8e71634725ac57440a2af5f7cd72aeb6, type: 2}
+    - {fileID: 11400000, guid: 1351c11950c57344c922afc1db4c3434, type: 2}
+    - {fileID: 11400000, guid: 1d43024b3a9833c4d9e52f3aedd6e6b3, type: 2}
+    - {fileID: 11400000, guid: 3d11adb8a775f774bacf660249207b49, type: 2}
+    - {fileID: 11400000, guid: 7e4a1dce02eddc84ab2cb7777d8d12ca, type: 2}
+    - {fileID: 11400000, guid: 9993ae33c96a9b94b9022cf2a2736aaa, type: 2}
+  - name: Mouth
+    items:
+    - {fileID: 11400000, guid: 3a09d2c23be3d3b43858595af3ab587c, type: 2}
+    - {fileID: 11400000, guid: 586743e8c44b08a4f80ab31e113205bf, type: 2}
+    - {fileID: 11400000, guid: d8d63c3d1be612844be5c060f0864dd1, type: 2}
+    - {fileID: 11400000, guid: 6eea9c3e5caa2dd4da4d7c970482b675, type: 2}

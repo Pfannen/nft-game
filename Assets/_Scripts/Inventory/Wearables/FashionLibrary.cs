@@ -9,8 +9,13 @@ public class FashionLibrary : ScriptableObject {
     [SerializeField] ItemLayer[] layers;
     Dictionary<string, Dictionary<string, FashionItem>> layerToItem = new Dictionary<string, Dictionary<string, FashionItem>>();
 
+    public CollectionIdentifier Collection => collection;
+
     public FashionItem GetLayerItem(string layerName, string layerItemName) {
-        return layerToItem[layerName][layerItemName];
+        if (layerToItem.TryGetValue(layerName, out Dictionary<string, FashionItem> items)) {
+            if (items.TryGetValue(layerItemName, out FashionItem item)) return item;
+        }
+        return null;
     }
 
 #if UNITY_EDITOR
@@ -23,7 +28,6 @@ public class FashionLibrary : ScriptableObject {
                 layerToItem[layer.name].Add(item.ItemName, item);
             }
         }
-        Debug.Log(layerToItem.Count);
     }
 #endif
 

@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using Web3Helpers;
 
 [System.Serializable]
@@ -16,6 +18,7 @@ public class InventoryItem : ScriptableObject {
     public CollectionIdentifier Collection => collection;
     public int TokenId => tokenId;
     public virtual bool UseTooltipButton => false;
+    public UnityAction TooltipButtonMethod => TooltipMethod;
 
     public void Initialize(Sprite image, string itemName, string description, CollectionIdentifier collection, int tokenId) {
         this.image = image;
@@ -24,4 +27,6 @@ public class InventoryItem : ScriptableObject {
         this.collection = collection;
         this.tokenId = tokenId;
     }
+
+    protected virtual void TooltipMethod() { }
 }

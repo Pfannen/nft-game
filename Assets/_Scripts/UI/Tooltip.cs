@@ -11,12 +11,18 @@ public class Tooltip : MonoBehaviour {
     [SerializeField] float descriptionPadding = 4f;
     [SerializeField] float descriptionButtonGap = 20f;
     [SerializeField] EquipmentManager equipmentManager;
+    [SerializeField] FashionManager fashionManager;
+
+    public static EquipmentManager EquipmentManager;
+    public static FashionManager FashionManager;
 
     RectTransform parentTransform;
     Vector2 buttonDimensions = new Vector2(0,0);
     InventoryItemUI current;
 
     void Start() {
+        EquipmentManager = equipmentManager;
+        FashionManager = fashionManager;
         parentTransform = GetComponent<RectTransform>();
         var buttonTransform = button.GetComponent<RectTransform>();
         buttonDimensions = new Vector2(buttonTransform.sizeDelta.x, buttonTransform.sizeDelta.y);
@@ -57,10 +63,8 @@ public class Tooltip : MonoBehaviour {
             current = item;
             var actualItem = item.InventoryItem;
             SetDescription(actualItem.Description);
-            if (item.InventoryItem is EquippableItem equippableItem) {
-                SetButton(equippableItem.IsEquipped(equipmentManager) ? "Play" : "Equip", 
-                    equippableItem.IsEquipped(equipmentManager) ? () => { SceneManager.LoadScene(1); } : () => {  equippableItem.EquipItem(equipmentManager); SetButton("Play", () => { SceneManager.LoadScene(1); }, false); }, 
-                    false);
+            if (actualItem.UseTooltipButton) {
+                SetButton("Use", actualItem.TooltipButtonMethod, false);
             }
             var itemTransform = item.GetComponent<RectTransform>();
             parentTransform.position = new Vector2(itemTransform.position.x, itemTransform.position.y - itemTransform.sizeDelta.y);
