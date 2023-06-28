@@ -21,7 +21,6 @@ public class SerializableFashion : FashionManager {
             for (int i = 1; i < itemIdentifiers.Length; i++) {
                 if (itemIdentifiers[i] != null) {
                     string[] pathInLib = itemIdentifiers[i].Split("/");
-                    Debug.Log(pathInLib[1]);
                     wearables[i - 1] = wearablesLibrary.GetLayerItem(pathInLib[0], pathInLib[1]);
                 }
             }

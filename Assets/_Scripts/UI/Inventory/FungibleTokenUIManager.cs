@@ -7,7 +7,7 @@ using System;
 
 public class FungibleTokenUIManager : MonoBehaviour {
     [SerializeField] BasicTokenUI tokenPrefab;
-    [SerializeField] SpriteBuilderTokenUI spriteBuilderPrefab;
+    //[SerializeField] SpriteBuilderTokenUI spriteBuilderPrefab;
     [SerializeField] RequestSO request;
     [SerializeField] SpriteLibraryAsset femaleSmachoLibrary;
     [SerializeField] SpriteLibraryAsset maleSmachoLibrary;
@@ -49,9 +49,10 @@ public class FungibleTokenUIManager : MonoBehaviour {
             FashionOutfit outfit = ScriptableObject.CreateInstance<FashionOutfit>();
             outfit.SetOutfitLayers(items, lib);
             outfit.Initialize(null, $"Smol {smol.tokenId}", items[0].ItemName, CollectionIdentifier.Smol, Int32.Parse(smol.tokenId));
-            var obj = Instantiate(spriteBuilderPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
+            var obj = Instantiate(tokenPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
+            ImageBuilder.BuildImageLayersFromOutfit(outfit, obj.gameObject);
             obj.Initialize(outfit, 1);
-            obj.InitializeAttributes(attr.Gender == "male" ? maleSmachoLibrary : femaleSmachoLibrary, attr);
+            //obj.InitializeAttributes(attr.Gender == "male" ? maleSmachoLibrary : femaleSmachoLibrary, attr);
         }
     }
 }

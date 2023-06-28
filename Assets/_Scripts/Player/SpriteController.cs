@@ -29,36 +29,16 @@ public class SpriteController : MonoBehaviour {
     }
 
     void Start() {
-        DestroyChildObjects();
         if (fashionManager) {
-            CreateRenderers(fashionManager.WearableCollection);
-            for (int i = 0; i < LayerHelper.NumLayers(fashionManager.WearableCollection); i++) {
-                var item = fashionManager.GetItem(i);
-                if (!item) SetLayerNull(i);
-                else SetLayer(item);
-            }
-        } else {
-            CreateRenderers(defaultOutfit.Collection);
-            SetOutfit(defaultOutfit);
-        }
+            Sprite[] sprites = new Sprite[LayerHelper.NumLayers(fashionManager.WearableCollection)];
+            for (int i = 0; i < sprites.Length; i++) sprites[i] = fashionManager.GetItem(i)?.Sprite;
+            renderers = ImageBuilder.BuildSpriteLayers(sprites, spritesHolder);
+        } else renderers = ImageBuilder.BuildSpriteLayersFromOutfit(defaultOutfit, spritesHolder);
     }
 
     private void SetOutfit(FashionOutfit outfit) {
-        for (int i = 0; i < renderers.Length; i++) SetLayerNull(i);
-        foreach (var layerItem in outfit.GetOutfitLayers()) SetLayer(layerItem);
-    }
-
-    private void DestroyChildObjects() {
-        foreach(Transform child in spritesHolder.transform) Destroy(child.gameObject);
-    }
-
-    private void CreateRenderers(CollectionIdentifier collection) {
-        renderers = new SpriteRenderer[LayerHelper.NumLayers(collection)];
-        for (int i = 0; i < renderers.Length; i++) {
-            renderers[i] = Instantiate(spriteGO, spritesHolder.transform.position, Quaternion.identity, spritesHolder.transform);
-            renderers[i].gameObject.name = i.ToString();
-            renderers[i].sortingLayerName = i.ToString();
-        }
+        if (renderers == null) ImageBuilder.BuildSpriteLayersFromOutfit(outfit, spritesHolder);
+        else ImageBuilder.SetLayersFromOutfit(outfit, spritesHolder, renderers);
     }
 
     private void SetLayer(FashionItem layerItem) {
