@@ -9,11 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e40758876d8cc424a91b76c493a5f0a6, type: 3}
+  m_Script: {fileID: 11500000, guid: dc4eef4716cee99409aa838e14e4204c, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: dab63c0fa1a91414ea1bfabd48b7f41b, type: 3}
-  itemName: Treasure Token
-  description: Magical treasure token
-  collectionName: Macho
+  itemName: Treasure Launcher
+  description: A mystical weapon charged by the magic of treasure
+  collection: 0
   tokenId: 1
+  equipmentType: 2
+  prefab: {fileID: 5521716870538148753, guid: 2889c9cf27a9c61478c49d092a767d62, type: 3}
+  damage: 1
+  range: 5
+  cooldown: 1
+  animations: []
+  defaultProjectile: {fileID: 1344812707200646769, guid: 09639a91ede98d1448d3b4fb2d012b86, type: 3}

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.U2D.Animation;
 using Web3Helpers;
 using System;
+using UnityEngine.SceneManagement;
 
 public class FungibleTokenUIManager : MonoBehaviour {
     [SerializeField] BasicTokenUI tokenPrefab;
@@ -25,6 +26,10 @@ public class FungibleTokenUIManager : MonoBehaviour {
 
     void OnDestroy() {
         inventory.CollectiblesUpdated -= OnCollectiblesUpdated;
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) SceneManager.LoadScene(1);
     }
 
     private void OnCollectiblesUpdated() {

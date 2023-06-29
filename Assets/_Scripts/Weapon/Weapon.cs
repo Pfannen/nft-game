@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Macho/Weapon", order = 0)]
-public abstract class Weapon : ScriptableObject
+public abstract class Weapon : EquippableItem
 {
     [SerializeField] GameObject prefab;
     [SerializeField] float damage = 1f;

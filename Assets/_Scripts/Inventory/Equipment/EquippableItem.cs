@@ -7,13 +7,17 @@ public class EquippableItem : InventoryItem {
 
     public override bool UseTooltipButton => true;
 
+    #region These methods should only be used when creating an instance at runtime
+    
+    public void EquipItem(EquipmentManager manager) {
+        manager.SetEquipment(equipmentType, this);
+    }
+
     public void SetEquipmentType(EquipmentType equipmentType) {
         this.equipmentType = equipmentType;
     }
 
-    public void EquipItem(EquipmentManager manager) {
-        manager.SetEquipment(equipmentType, this);
-    }
+    #endregion
 
     public bool IsEquipped(EquipmentManager manager) {
         return manager.GetEquipment(equipmentType) == this;
