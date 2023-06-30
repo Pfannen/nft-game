@@ -11,21 +11,36 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] float climbSpeed = 1f;
     [SerializeField] LayerMask climbing;
+    [SerializeField] Transform mountSpawn;
+    //Temporary field
+    [SerializeField] bool toggleMount = false;
 
+    EquipmentManager manager;
     Rigidbody2D playerRb;
     BoxCollider2D playerCollider;
     Vector2 moveInput;
     float initialPlayerGravity;
 
-    void Start() {
+    Mount mount;
+
+    void Awake() {
         playerRb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
+        manager = GetComponent<EquipmentManager>();
+    }
+
+    void Start() {
         initialPlayerGravity = playerRb.gravityScale;
+        if (manager && toggleMount) OnEquipmentChange();
     }
 
     void Update() {
-        Run();
-        Climb();
+        if (mount) {
+            MoveMount();
+        } else {
+            Run();
+            Climb();
+        }
         FlipSprite();
     }
 
@@ -55,10 +70,38 @@ public class PlayerMovement : MonoBehaviour
         } else playerRb.gravityScale = initialPlayerGravity;
     }
 
-    void FlipSprite() {
+    private void MoveMount() {
+        playerRb.velocity = new Vector2(moveInput.x * mount.MountSpeed, moveInput.y * mount.MountSpeed);
+    }
+
+    private void FlipSprite() {
         bool horizontalMovement = Mathf.Abs(playerRb.velocity.x) > Mathf.Epsilon;
         if (horizontalMovement) {
             transform.localScale = new Vector2(Mathf.Sign(playerRb.velocity.x), 1f);
         }
+    }
+
+    private void OnEquipmentChange() {
+        EquipMount(manager.GetEquipment(EquipmentType.Mount) as Mount);
+    }
+
+    private void EquipMount(Mount mount) {
+        this.mount = mount;
+        for (int i = mountSpawn.childCount - 1; i >= 0; i--) {
+            Destroy(mountSpawn.GetChild(i).gameObject);
+        }
+        if (!mount) playerRb.gravityScale = initialPlayerGravity;
+        else {
+            if (mount.Prefab != null) Instantiate(mount.Prefab, mountSpawn.position, Quaternion.identity, mountSpawn);
+            playerRb.gravityScale = 0;
+        } 
+    }
+
+    void OnEnable() {
+        if (manager) manager.EquipmentChanged += OnEquipmentChange;
+    }
+
+    void OnDisable() {
+        if (manager) manager.EquipmentChanged -= OnEquipmentChange;
     }
 }
