@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public class Levitate : MonoBehaviour {
-    [SerializeField] float speed = 1f;
-    [SerializeField] float distance = 3f;
+    [SerializeField] float speed = .25f;
+    [SerializeField] float distance = .25f;
 
     float curDistance = 0f;
     bool up = true;

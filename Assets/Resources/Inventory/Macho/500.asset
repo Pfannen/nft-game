@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7516192842a9f5b4fa557fadbfc1d19a, type: 3}
   m_Name: 500
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 615f855a7d7cf094cb9529d38b54ac17, type: 3}
-  itemName: Sir Jimmy's Mount
-  description: Jimmy Neutron has infused this mount with great powers
+  image: {fileID: 21300000, guid: 8a2c7b169cdda8d468bb5cca805fc457, type: 3}
+  itemName: Yule Cloud
+  description: A limited-edition Yuletide cloud
   collection: 0
   tokenId: 500
   equipmentType: 3
-  prefab: {fileID: 2623878045311269807, guid: 97769e72fd7e5a749b5d738305d5e7e9, type: 3}
+  prefab: {fileID: 4184788892173617705, guid: daaf9575457379043b4944da2c7b73f7, type: 3}
   mountSpeed: 10

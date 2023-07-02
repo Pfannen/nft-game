@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform mountSpawn;
     //Temporary field
     [SerializeField] bool toggleMount = false;
+    [SerializeField] GameObject sprites;
 
     EquipmentManager manager;
     Rigidbody2D playerRb;
@@ -92,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!mount) playerRb.gravityScale = initialPlayerGravity;
         else {
-            if (mount.Prefab != null) Instantiate(mount.Prefab, mountSpawn.position, Quaternion.identity, mountSpawn);
+            if (mount.Prefab != null) Instantiate(mount.Prefab, mount.Prefab.gameObject.transform.position + mountSpawn.position, Quaternion.identity, mountSpawn);
             playerRb.gravityScale = 0;
         } 
     }
