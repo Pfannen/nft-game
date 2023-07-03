@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
@@ -33,21 +34,32 @@ public static class ImageBuilder {
         return renderers;
     }
 
-    public static void BuildImageLayers(Sprite[] sprites, GameObject parent) {
-        DeleteChildren(parent);
+    public static void BuildImageLayers(Sprite[] sprites, RectTransform parent, bool maintainDimensions) {
+        DeleteChildren(parent.gameObject);
+        Vector2? dimensions = null;
         for (int i = 0; i < sprites.Length; i++) {
+            Sprite sprite = sprites[i];
             GameObject gO = new GameObject(i.ToString(), typeof(RectTransform));
             var renderer = gO.AddComponent<Image>();
-            renderer.sprite = sprites[i];
-            if (sprites[i] == null) renderer.color = new Color(0,0,0,0);
-            gO.transform.SetParent(parent.transform);
+            renderer.sprite = sprite;
+            if (sprite == null) renderer.color = new Color(0,0,0,0);
+            else if (maintainDimensions) {
+                if (dimensions == null) {
+                    float factor = Math.Min(parent.sizeDelta.x / sprite.rect.size.x, parent.sizeDelta.y / sprite.rect.size.y);
+                    dimensions = new Vector2(sprite.rect.size.x * factor, sprite.rect.size.y * factor);
+                }
+                RectTransform spriteTransform = gO.GetComponent<RectTransform>();
+                spriteTransform.sizeDelta = dimensions.Value;
+                spriteTransform.position = Vector2.zero;
+            }
+            gO.transform.SetParent(parent.transform, false);
         }
     }
 
-    public static void BuildImageLayersFromOutfit(FashionOutfit outfit, GameObject parent) {
+    public static void BuildImageLayersFromOutfit(FashionOutfit outfit, RectTransform parent, bool maintainDimensions) {
         Sprite[] sprites = new Sprite[LayerHelper.NumLayers(outfit.Collection)];
         foreach (var item in outfit.GetOutfitLayers()) if (item != null) sprites[item.LayerOrder] = item.Sprite;
-        BuildImageLayers(sprites, parent);
+        BuildImageLayers(sprites, parent, maintainDimensions);
     }
 
     public static SpriteRenderer[] BuildSpriteLayersFromOutfit(FashionOutfit outfit, GameObject parent) {
@@ -66,5 +78,19 @@ public static class ImageBuilder {
 
     private static void DeleteChildren(GameObject parent) {
         foreach (Transform obj in parent.transform) MonoBehaviour.Destroy(obj.gameObject);
+    }
+
+    public static FashionOutfit BuildOutfitFromSmol(Smol smol, FashionLibrary lib) {
+        Attributes attr = smol.attributes;
+        FashionItem[] items = new FashionItem[LayerHelper.NumLayers(CollectionIdentifier.Smol)];
+        items[0] = lib.GetLayerItem("Body", attr.Body);
+        items[1] = lib.GetLayerItem("Clothes", attr.Clothes);
+        items[2] = lib.GetLayerItem("Glasses", attr.Glasses);
+        items[3] = lib.GetLayerItem("Hat", attr.Hat);
+        items[4] = lib.GetLayerItem("Mouth", attr.Mouth);
+        FashionOutfit outfit = ScriptableObject.CreateInstance<FashionOutfit>();
+        outfit.SetOutfitLayers(items, lib);
+        outfit.Initialize(null, $"Smol {smol.tokenId}", items[0].ItemName, CollectionIdentifier.Smol, Int32.Parse(smol.tokenId));
+        return outfit;
     }
 }

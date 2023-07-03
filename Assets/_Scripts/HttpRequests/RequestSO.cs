@@ -25,7 +25,7 @@ public class RequestSO : ScriptableObject {
         //LoopThroughSmols();
     }
 
-    async void FetchAndSerializeSmols() {
+    private async void FetchAndSerializeSmols() {
         await CollectionFetcher.FetchSmols("0xbE8Caf82259D44EeCd0A6BcdB82655a4F6711b1A");
         SerializeSmols();
     }
@@ -46,7 +46,7 @@ public class RequestSO : ScriptableObject {
         }
     }
 
-    void SerializeSmols() {
+    private void SerializeSmols() {
         using (FileStream stream = new(path + "/Smols.smol", FileMode.Create)) {
             BinaryFormatter bF = new();
             bF.Serialize(stream, CollectionFetcher.Smols);

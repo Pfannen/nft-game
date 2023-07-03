@@ -9,6 +9,7 @@ public class PlayerInventory : MonoBehaviour {
     Dictionary<int, int> unclaimedCollectibles = new Dictionary<int, int>();
 
     public Dictionary<int,int> PlayerCollectibles => claimedCollectibles;
+
     public event Action CollectiblesUpdated;
 
     void Awake() {

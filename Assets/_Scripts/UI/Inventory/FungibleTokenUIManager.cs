@@ -45,17 +45,9 @@ public class FungibleTokenUIManager : MonoBehaviour {
         foreach (var smol in CollectionFetcher.Smols) {
             var attr = smol.attributes;
             var lib = attr.Gender == "male" ? mFL : fFL;
-            FashionItem[] items = new FashionItem[LayerHelper.NumLayers(CollectionIdentifier.Smol)];
-            items[0] = lib.GetLayerItem("Body", attr.Body);
-            items[1] = lib.GetLayerItem("Clothes", attr.Clothes);
-            items[2] = lib.GetLayerItem("Glasses", attr.Glasses);
-            items[3] = lib.GetLayerItem("Hat", attr.Hat);
-            items[4] = lib.GetLayerItem("Mouth", attr.Mouth);
-            FashionOutfit outfit = ScriptableObject.CreateInstance<FashionOutfit>();
-            outfit.SetOutfitLayers(items, lib);
-            outfit.Initialize(null, $"Smol {smol.tokenId}", items[0].ItemName, CollectionIdentifier.Smol, Int32.Parse(smol.tokenId));
+            FashionOutfit outfit = ImageBuilder.BuildOutfitFromSmol(smol, lib);
             var obj = Instantiate(tokenPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
-            ImageBuilder.BuildImageLayersFromOutfit(outfit, obj.gameObject);
+            ImageBuilder.BuildImageLayersFromOutfit(outfit, obj.GetComponent<RectTransform>(), true);
             obj.Initialize(outfit, 1);
             //obj.InitializeAttributes(attr.Gender == "male" ? maleSmachoLibrary : femaleSmachoLibrary, attr);
         }
