@@ -9,7 +9,7 @@ public class FashionOutfit : InventoryItem {
     [SerializeField] FashionLibrary fashionLibrary;
 
     public FashionLibrary FashionLibrary => fashionLibrary;
-    public override bool UseTooltipButton => true;
+    public override bool IsUsable => true;
 
     public void SetCollection(CollectionIdentifier collection) {
         this.collection = collection;
@@ -29,7 +29,7 @@ public class FashionOutfit : InventoryItem {
         manager.WearOutfit(this);
     }
 
-    protected override void TooltipMethod() {
+    protected override void UseItemMethod() {
         EquipOutfit(Tooltip.FashionManager);
     }
 }

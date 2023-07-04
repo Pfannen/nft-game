@@ -17,8 +17,8 @@ public class InventoryItem : ScriptableObject {
     public string Description => description;
     public CollectionIdentifier Collection => collection;
     public int TokenId => tokenId;
-    public virtual bool UseTooltipButton => false;
-    public UnityAction TooltipButtonMethod => TooltipMethod;
+    public virtual bool IsUsable => false;
+    public UnityAction ItemMethod => UseItemMethod;
 
     public void Initialize(Sprite image, string itemName, string description, CollectionIdentifier collection, int tokenId) {
         this.image = image;
@@ -28,5 +28,5 @@ public class InventoryItem : ScriptableObject {
         this.tokenId = tokenId;
     }
 
-    protected virtual void TooltipMethod() { }
+    protected virtual void UseItemMethod() { }
 }

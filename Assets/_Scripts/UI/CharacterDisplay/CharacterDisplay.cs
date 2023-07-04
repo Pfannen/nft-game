@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class CharacterDisplay : MonoBehaviour {
-    
     void OnEnable() {
         CharacterBoxOutfit.CharacterSelected += DisplayCharacter;
     }

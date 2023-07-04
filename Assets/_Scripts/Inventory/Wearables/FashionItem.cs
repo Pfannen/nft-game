@@ -10,13 +10,13 @@ public class FashionItem : InventoryItem {
     public string SpriteName => itemName;
     public string LayerName => layerName;
     public int LayerOrder => layerOrder;
-    public override bool UseTooltipButton => true;
+    public override bool IsUsable => true;
 
     public void EquipFashionItem(FashionManager manager) {
         manager.WearItem(this);
     }
 
-    protected override void TooltipMethod() {
+    protected override void UseItemMethod() {
         EquipFashionItem(Tooltip.FashionManager);
     }
 }

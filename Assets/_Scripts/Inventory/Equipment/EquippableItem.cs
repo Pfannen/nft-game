@@ -5,7 +5,7 @@ using Web3Helpers;
 public class EquippableItem : InventoryItem {
     [SerializeField] protected EquipmentType equipmentType;
 
-    public override bool UseTooltipButton => true;
+    public override bool IsUsable => true;
 
     #region These methods should only be used when creating an instance at runtime
     
@@ -23,7 +23,7 @@ public class EquippableItem : InventoryItem {
         return manager.GetEquipment(equipmentType) == this;
     }
 
-    protected override void TooltipMethod() {
+    protected override void UseItemMethod() {
         EquipItem(Tooltip.EquipmentManager);
     }
 }
