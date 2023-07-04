@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using Web3Helpers;
 
-public class SerializableFashion : FashionManager {
+public class SerializableCharacterManager : CharacterLayerManager {
     protected override void Awake() {
         base.Awake();
         RetrieveWearables();
@@ -15,9 +15,9 @@ public class SerializableFashion : FashionManager {
         using (FileStream stream = new(Application.persistentDataPath + "/wearables.wear", FileMode.Open)) {
             BinaryFormatter bF = new();
             string[] itemIdentifiers = bF.Deserialize(stream) as string[];
-            wearablesLibrary = Resources.Load<FashionLibrary>($"Wearables/{itemIdentifiers[0]}");
+            wearablesLibrary = Resources.Load<CharacterLayerLibrary>($"Wearables/{itemIdentifiers[0]}");
             wearableCollection = wearablesLibrary.Collection;
-            wearables = new FashionItem[LayerHelper.NumLayers(wearablesLibrary.Collection)];
+            wearables = new CharacterLayerItem[LayerHelper.NumLayers(wearablesLibrary.Collection)];
             for (int i = 1; i < itemIdentifiers.Length; i++) {
                 if (itemIdentifiers[i] != null) {
                     string[] pathInLib = itemIdentifiers[i].Split("/");

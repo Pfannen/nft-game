@@ -15,8 +15,8 @@ public class FungibleTokenUIManager : MonoBehaviour {
     PlayerInventory inventory;
     RectTransform tokenContainer;
 
-    [SerializeField] FashionLibrary mFL;
-    [SerializeField] FashionLibrary fFL;
+    [SerializeField] CharacterLayerLibrary mFL;
+    [SerializeField] CharacterLayerLibrary fFL;
 
     void Awake() {
         tokenContainer = GetComponent<RectTransform>();
@@ -45,7 +45,7 @@ public class FungibleTokenUIManager : MonoBehaviour {
         foreach (var smol in CollectionFetcher.Smols) {
             var attr = smol.attributes;
             var lib = attr.Gender == "male" ? mFL : fFL;
-            FashionOutfit outfit = ImageBuilder.BuildOutfitFromSmol(smol, lib);
+            CharacterPreset outfit = ImageBuilder.BuildCharacterFromSmol(smol, lib);
             var obj = Instantiate(tokenPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
             ImageBuilder.BuildImageLayersFromOutfit(outfit, obj.GetComponent<RectTransform>(), true);
             obj.Initialize(outfit, 1);

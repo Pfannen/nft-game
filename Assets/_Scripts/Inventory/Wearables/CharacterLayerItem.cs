@@ -2,7 +2,7 @@ using UnityEngine;
 using Web3Helpers;
 
 [CreateAssetMenu(fileName = "Layer Item", menuName = "Macho/Wearables/Layer Item", order = 0)]
-public class FashionItem : InventoryItem {
+public class CharacterLayerItem : InventoryItem {
     [SerializeField] string layerName;
     [SerializeField] int layerOrder;
 
@@ -12,7 +12,7 @@ public class FashionItem : InventoryItem {
     public int LayerOrder => layerOrder;
     public override bool IsUsable => true;
 
-    public void EquipFashionItem(FashionManager manager) {
+    public void EquipFashionItem(CharacterLayerManager manager) {
         manager.WearItem(this);
     }
 

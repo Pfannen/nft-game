@@ -2,21 +2,21 @@ using System;
 using UnityEngine;
 using Web3Helpers;
 
-public class FashionManager : MonoBehaviour {
-    protected FashionItem[] wearables;
-    protected FashionLibrary wearablesLibrary;
+public class CharacterLayerManager : MonoBehaviour {
+    protected CharacterLayerItem[] wearables;
+    protected CharacterLayerLibrary wearablesLibrary;
     protected CollectionIdentifier wearableCollection = CollectionIdentifier.Smol;
-    protected FashionOutfit wearableOutfit;
+    protected CharacterPreset wearableOutfit;
 
-    public event Action<FashionItem> ItemWorn;
+    public event Action<CharacterLayerItem> ItemWorn;
     public event Action<int> ItemRemoved;
     public CollectionIdentifier WearableCollection => wearableCollection;
 
     protected virtual void Awake() {
-        wearables = new FashionItem[LayerHelper.NumLayers(wearableCollection)];
+        wearables = new CharacterLayerItem[LayerHelper.NumLayers(wearableCollection)];
     }
 
-    public bool WearOutfit(FashionOutfit outfit) {
+    public bool WearOutfit(CharacterPreset outfit) {
         if (outfit.Collection != wearableCollection) return false;
         for (int i = 0; i < wearables.Length; i++) RemoveItem(i);
         foreach (var item in outfit.GetOutfitLayers()) WearItem(item);
@@ -25,7 +25,7 @@ public class FashionManager : MonoBehaviour {
         return true;
     }
 
-    public bool WearItem(FashionItem item) {
+    public bool WearItem(CharacterLayerItem item) {
         if (item == null) return true;
         if (item.Collection != wearableCollection) return false;
         wearables[item.LayerOrder] = item;
@@ -39,7 +39,7 @@ public class FashionManager : MonoBehaviour {
         wearableOutfit = null;
     }
 
-    public FashionItem GetItem(int order) {
+    public CharacterLayerItem GetItem(int order) {
         return wearables[order];
     }
 }

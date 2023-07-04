@@ -7,7 +7,7 @@ using Web3Helpers;
 public static class CollectionFetcher {
     public static string TestingAddress = "0xbE8Caf82259D44EeCd0A6BcdB82655a4F6711b1A";
 
-    public static Smol[] Smols { get; private set; }
+    public static Smol[] Smols { get; private set; } = null;
 
     public static async Task FetchSmols(string address) {
         try {

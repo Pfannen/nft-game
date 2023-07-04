@@ -4,14 +4,14 @@ using UnityEngine.U2D.Animation;
 using Web3Helpers;
 
 public class SpriteController : MonoBehaviour {
-    [SerializeField] FashionOutfit defaultOutfit;
+    [SerializeField] CharacterPreset defaultOutfit;
     [SerializeField] GameObject spritesHolder;
     [SerializeField] SpriteRenderer spriteGO;
-    FashionManager fashionManager;
+    CharacterLayerManager fashionManager;
     SpriteRenderer[] renderers;
 
     void Awake() {
-        fashionManager = GetComponent<FashionManager>();
+        fashionManager = GetComponent<CharacterLayerManager>();
     }
 
     void OnEnable() {
@@ -36,12 +36,12 @@ public class SpriteController : MonoBehaviour {
         } else renderers = ImageBuilder.BuildSpriteLayersFromOutfit(defaultOutfit, spritesHolder);
     }
 
-    private void SetOutfit(FashionOutfit outfit) {
+    private void SetOutfit(CharacterPreset outfit) {
         if (renderers == null) ImageBuilder.BuildSpriteLayersFromOutfit(outfit, spritesHolder);
         else ImageBuilder.SetLayersFromOutfit(outfit, spritesHolder, renderers);
     }
 
-    private void SetLayer(FashionItem layerItem) {
+    private void SetLayer(CharacterLayerItem layerItem) {
         Debug.Log(layerItem);
         renderers[layerItem.LayerOrder].sprite = layerItem.Image;
     }

@@ -51,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value) {
         if (value.isPressed && IsTouchingGround()) {
-            playerRb.velocity += new Vector2(0f, jumpHeight);
+            playerRb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            //playerRb.velocity += new Vector2(0f, jumpHeight);
         }
     }
 

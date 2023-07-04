@@ -351,7 +351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8399997, y: 0.7129995, z: -12.4}
+  m_LocalPosition: {x: -6.8399997, y: 2.4699996, z: -12.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1424,7 +1424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012640399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8399997, y: 0.7129995, z: -12.4}
+  m_LocalPosition: {x: -6.8399997, y: 2.4699996, z: -12.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1601,6 +1601,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smol
       objectReference: {fileID: 0}
+    - target: {fileID: 2056628381483424261, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056628381483424261, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2056628381483424262, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1611,7 +1619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2056628381483424262, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.713
+      value: 2.47
       objectReference: {fileID: 0}
     - target: {fileID: 2056628381483424262, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
       propertyPath: m_LocalPosition.z

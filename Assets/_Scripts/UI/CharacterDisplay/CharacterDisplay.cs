@@ -9,7 +9,7 @@ public class CharacterDisplay : MonoBehaviour {
         CharacterBoxOutfit.CharacterSelected -= DisplayCharacter;
     }
 
-    private void DisplayCharacter(FashionOutfit outfit) {
+    private void DisplayCharacter(CharacterPreset outfit) {
         ImageBuilder.BuildImageLayersFromOutfit(outfit, GetComponent<RectTransform>(), true);
     }
 }

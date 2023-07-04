@@ -479,7 +479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.00012207, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710002255
@@ -1847,6 +1847,7 @@ MonoBehaviour:
   characterBoxPrefab: {fileID: 5645185995861273315, guid: 6b85bd1309f46184eac22f1156ee49b5, type: 3}
   mFL: {fileID: 11400000, guid: 7ca79d4997811d743b46801d6bb2fb83, type: 2}
   fFL: {fileID: 11400000, guid: 4d2f1ef13b981244cbd961965d182599, type: 2}
+  text: {fileID: 0}
 --- !u!1 &2007535169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,7 +1859,7 @@ GameObject:
   - component: {fileID: 2007535170}
   - component: {fileID: 2007535171}
   m_Layer: 0
-  m_Name: Serializable Fashion
+  m_Name: Serializable Character Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

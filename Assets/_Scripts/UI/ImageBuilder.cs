@@ -56,20 +56,20 @@ public static class ImageBuilder {
         }
     }
 
-    public static void BuildImageLayersFromOutfit(FashionOutfit outfit, RectTransform parent, bool maintainDimensions) {
+    public static void BuildImageLayersFromOutfit(CharacterPreset outfit, RectTransform parent, bool maintainDimensions) {
         Sprite[] sprites = new Sprite[LayerHelper.NumLayers(outfit.Collection)];
         foreach (var item in outfit.GetOutfitLayers()) if (item != null) sprites[item.LayerOrder] = item.Sprite;
         BuildImageLayers(sprites, parent, maintainDimensions);
     }
 
-    public static SpriteRenderer[] BuildSpriteLayersFromOutfit(FashionOutfit outfit, GameObject parent) {
+    public static SpriteRenderer[] BuildSpriteLayersFromOutfit(CharacterPreset outfit, GameObject parent) {
         Sprite[] sprites = new Sprite[LayerHelper.NumLayers(outfit.Collection)];
         foreach (var item in outfit.GetOutfitLayers()) if (item != null) sprites[item.LayerOrder] = item.Sprite;
         return BuildSpriteLayers(sprites, parent);
     }
 
 
-    public static bool SetLayersFromOutfit(FashionOutfit outfit, GameObject parent, SpriteRenderer[] renderers) {
+    public static bool SetLayersFromOutfit(CharacterPreset outfit, GameObject parent, SpriteRenderer[] renderers) {
         if (renderers.Length != LayerHelper.NumLayers(outfit.Collection)) return false;
         foreach (var renderer in renderers) renderer.sprite = null;
         foreach (var item in outfit.GetOutfitLayers()) renderers[item.LayerOrder].sprite = item.Sprite;
@@ -80,15 +80,15 @@ public static class ImageBuilder {
         foreach (Transform obj in parent.transform) MonoBehaviour.Destroy(obj.gameObject);
     }
 
-    public static FashionOutfit BuildOutfitFromSmol(Smol smol, FashionLibrary lib) {
+    public static CharacterPreset BuildCharacterFromSmol(Smol smol, CharacterLayerLibrary lib) {
         Attributes attr = smol.attributes;
-        FashionItem[] items = new FashionItem[LayerHelper.NumLayers(CollectionIdentifier.Smol)];
+        CharacterLayerItem[] items = new CharacterLayerItem[LayerHelper.NumLayers(CollectionIdentifier.Smol)];
         items[0] = lib.GetLayerItem("Body", attr.Body);
         items[1] = lib.GetLayerItem("Clothes", attr.Clothes);
         items[2] = lib.GetLayerItem("Glasses", attr.Glasses);
         items[3] = lib.GetLayerItem("Hat", attr.Hat);
         items[4] = lib.GetLayerItem("Mouth", attr.Mouth);
-        FashionOutfit outfit = ScriptableObject.CreateInstance<FashionOutfit>();
+        CharacterPreset outfit = ScriptableObject.CreateInstance<CharacterPreset>();
         outfit.SetOutfitLayers(items, lib);
         outfit.Initialize(null, $"Smol {smol.tokenId}", items[0].ItemName, CollectionIdentifier.Smol, Int32.Parse(smol.tokenId));
         return outfit;

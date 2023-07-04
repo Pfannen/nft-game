@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayCharacterButton : MonoBehaviour {
-    [SerializeField] SerializableFashion characterSetter;
+    [SerializeField] SerializableCharacterManager characterSetter;
 
     private Button button;
-    private FashionOutfit selectedCharacter = null;
+    private CharacterPreset selectedCharacter = null;
 
     void Start() {
         button = GetComponent<Button>();
@@ -22,7 +22,7 @@ public class PlayCharacterButton : MonoBehaviour {
         CharacterBoxOutfit.CharacterSelected -= SetButtonInteractable;
     }
 
-    private void SetButtonInteractable(FashionOutfit outfit) {
+    private void SetButtonInteractable(CharacterPreset outfit) {
         button.interactable = true;
         selectedCharacter = outfit;
     }

@@ -11,10 +11,10 @@ public class Tooltip : MonoBehaviour {
     [SerializeField] float descriptionPadding = 4f;
     [SerializeField] float descriptionButtonGap = 20f;
     [SerializeField] EquipmentManager equipmentManager;
-    [SerializeField] FashionManager fashionManager;
+    [SerializeField] CharacterLayerManager fashionManager;
 
     public static EquipmentManager EquipmentManager;
-    public static FashionManager FashionManager;
+    public static CharacterLayerManager FashionManager;
 
     RectTransform parentTransform;
     Vector2 buttonDimensions = new Vector2(0,0);
