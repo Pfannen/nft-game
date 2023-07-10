@@ -5,9 +5,12 @@ using UnityEngine;
 using Web3Helpers;
 
 public class SerializableCharacterManager : CharacterLayerManager {
+    public static CharacterLayerManager Instance { get; private set; }
+
     protected override void Awake() {
         base.Awake();
         RetrieveWearables();
+        Instance = this;
     }
 
     private void RetrieveWearables() {

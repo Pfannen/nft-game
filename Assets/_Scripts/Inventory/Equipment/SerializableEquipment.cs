@@ -8,8 +8,11 @@ using UnityEngine;
 using Web3Helpers;
 
 public class SerializableEquipment : EquipmentManager {
+    public static EquipmentManager Instance { get; private set; }
+
     void Awake() {
         RetrieveDictionary();
+        Instance = this;
     }
 
     private void RetrieveDictionary() {

@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class FungibleTokenUIManager : MonoBehaviour {
     [SerializeField] BasicTokenUI tokenPrefab;
-    //[SerializeField] SpriteBuilderTokenUI spriteBuilderPrefab;
     [SerializeField] RequestSO request;
     [SerializeField] SpriteLibraryAsset femaleSmachoLibrary;
     [SerializeField] SpriteLibraryAsset maleSmachoLibrary;
@@ -21,6 +20,7 @@ public class FungibleTokenUIManager : MonoBehaviour {
     void Awake() {
         tokenContainer = GetComponent<RectTransform>();
         inventory = FindObjectOfType<PlayerInventory>();
+        if (inventory.InventoryLoaded && tokenContainer.childCount == 0) OnCollectiblesUpdated();
         inventory.CollectiblesUpdated += OnCollectiblesUpdated;
     }
 

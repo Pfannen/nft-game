@@ -4,17 +4,21 @@ using HttpRequests.CollectibleFormats;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour {
+    public static PlayerInventory Instance { get; private set; }
+
     string session = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOjEsImlhdCI6MTY4NzIwNzMxNH0.QF87oxFi2bh0eoU0SHIQdVg_JRNv6T2Bzd3yv7_Lui8";
     Dictionary<int, int> claimedCollectibles = new Dictionary<int, int>();
     Dictionary<int, int> unclaimedCollectibles = new Dictionary<int, int>();
 
     public Dictionary<int,int> PlayerCollectibles => claimedCollectibles;
+    public bool InventoryLoaded { get; private set; } = false;
 
     public event Action CollectiblesUpdated;
 
     void Awake() {
         //Create 'Collectible' class and store player collectibles in 'playerCollectibles'
         GetCollectibleBalances();
+        Instance = this;
     }
 
     /* void Start() {
@@ -76,6 +80,7 @@ public class PlayerInventory : MonoBehaviour {
             }
         }
         CollectiblesUpdated?.Invoke();
+        InventoryLoaded = true;
         //LogCollectibles();
     }
 

@@ -5,24 +5,22 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Tooltip : MonoBehaviour {
+    public static CharacterLayerManager CharacterManager = null;
+    public static EquipmentManager EquipmentManager = null;
+
     [SerializeField] TMP_Text description;
     [SerializeField] Button button;
     [SerializeField] TMP_Text buttonText;
     [SerializeField] float descriptionPadding = 4f;
     [SerializeField] float descriptionButtonGap = 20f;
-    [SerializeField] EquipmentManager equipmentManager;
-    [SerializeField] CharacterLayerManager fashionManager;
-
-    public static EquipmentManager EquipmentManager;
-    public static CharacterLayerManager FashionManager;
 
     RectTransform parentTransform;
     Vector2 buttonDimensions = new Vector2(0,0);
     InventoryItemUI current;
 
     void Start() {
-        EquipmentManager = equipmentManager;
-        FashionManager = fashionManager;
+        CharacterManager = SerializableCharacterManager.Instance;
+        EquipmentManager = SerializableEquipment.Instance;
         parentTransform = GetComponent<RectTransform>();
         var buttonTransform = button.GetComponent<RectTransform>();
         buttonDimensions = new Vector2(buttonTransform.sizeDelta.x, buttonTransform.sizeDelta.y);

@@ -30,6 +30,6 @@ public class CharacterPreset : InventoryItem {
     }
 
     protected override void UseItemMethod() {
-        EquipOutfit(Tooltip.FashionManager);
+        EquipOutfit(Tooltip.CharacterManager);
     }
 }

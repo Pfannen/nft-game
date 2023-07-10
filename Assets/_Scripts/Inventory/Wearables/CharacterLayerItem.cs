@@ -17,6 +17,6 @@ public class CharacterLayerItem : InventoryItem {
     }
 
     protected override void UseItemMethod() {
-        EquipFashionItem(Tooltip.FashionManager);
+        EquipFashionItem(Tooltip.CharacterManager);
     }
 }
