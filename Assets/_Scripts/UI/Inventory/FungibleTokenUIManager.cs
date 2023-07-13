@@ -47,7 +47,7 @@ public class FungibleTokenUIManager : MonoBehaviour {
             var lib = attr.Gender == "male" ? mFL : fFL;
             CharacterPreset outfit = ImageBuilder.BuildCharacterFromSmol(smol, lib);
             var obj = Instantiate(tokenPrefab, new Vector3(0,0,0), Quaternion.identity, tokenContainer);
-            ImageBuilder.BuildImageLayersFromOutfit(outfit, obj.GetComponent<RectTransform>(), true);
+            ImageBuilder.BuildImageLayersFromOutfit(outfit, obj.Content, true);
             obj.Initialize(outfit, 1);
             //obj.InitializeAttributes(attr.Gender == "male" ? maleSmachoLibrary : femaleSmachoLibrary, attr);
         }
