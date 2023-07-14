@@ -8,7 +8,7 @@ public class CharacterLayerManager : MonoBehaviour {
     protected CollectionIdentifier wearableCollection = CollectionIdentifier.Smol;
     protected CharacterPreset wearableOutfit;
 
-    public event Action<CharacterLayerItem> ItemWorn;
+    public event Action<int> ItemWorn;
     public event Action<int> ItemRemoved;
     public CollectionIdentifier WearableCollection => wearableCollection;
 
@@ -29,7 +29,7 @@ public class CharacterLayerManager : MonoBehaviour {
         if (item == null) return true;
         if (item.Collection != wearableCollection) return false;
         wearables[item.LayerOrder] = item;
-        ItemWorn?.Invoke(item);
+        ItemWorn?.Invoke(item.LayerOrder);
         return true;
     }
 

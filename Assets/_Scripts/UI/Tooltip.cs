@@ -64,8 +64,9 @@ public class Tooltip : MonoBehaviour {
             if (actualItem.IsUsable) {
                 SetButton("Use", actualItem.ItemMethod, false);
             }
-            var itemTransform = item.GetComponent<RectTransform>();
-            parentTransform.position = new Vector2(itemTransform.position.x, itemTransform.position.y - itemTransform.sizeDelta.y);
+            //var itemTransform = item.GetComponent<RectTransform>();
+            //parentTransform.position = new Vector2(itemTransform.position.x, itemTransform.position.y - itemTransform.sizeDelta.y);
+            parentTransform.anchoredPosition = Vector2.zero;
         }
     }
 

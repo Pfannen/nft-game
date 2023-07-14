@@ -1847,7 +1847,6 @@ MonoBehaviour:
   characterBoxPrefab: {fileID: 5645185995861273315, guid: 6b85bd1309f46184eac22f1156ee49b5, type: 3}
   mFL: {fileID: 11400000, guid: 7ca79d4997811d743b46801d6bb2fb83, type: 2}
   fFL: {fileID: 11400000, guid: 4d2f1ef13b981244cbd961965d182599, type: 2}
-  text: {fileID: 0}
 --- !u!1 &2007535169
 GameObject:
   m_ObjectHideFlags: 0

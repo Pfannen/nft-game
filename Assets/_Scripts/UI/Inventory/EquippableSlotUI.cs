@@ -6,16 +6,26 @@ using Web3Helpers;
 public class EquippableSlotUI : InventoryItemUI {
     [SerializeField] CollectionIdentifier collection;
     [SerializeField] int layerOrder;
+    [SerializeField] Image itemImage;
 
     Image image;
+    CharacterLayerManager manager;
 
     void Awake() {
         image = GetComponent<Image>();
         image.preserveAspect = true;
+        itemImage.preserveAspect = true;
     }
 
-    void OnEnable() {
-        SerializableCharacterManager.Instance.ItemWorn += OnItemWorn;
+    void Start() {
+        manager = SerializableCharacterManager.Instance;
+        manager.ItemWorn += ProcessLayer;
+        manager.ItemRemoved += ProcessLayer;
+        ProcessLayer(layerOrder);
+    }
+
+    void OnDisable() {
+        manager.ItemWorn -= ProcessLayer;
     }
 
     public void SetCollection(CollectionIdentifier collection) {
@@ -26,12 +36,11 @@ public class EquippableSlotUI : InventoryItemUI {
         this.layerOrder = layerOrder;
     }
 
-    public void SetImage(Sprite sprite) {
-        image.sprite = sprite;
-    }
-
-    private void OnItemWorn(CharacterLayerItem item) {
-        if (item.LayerOrder == layerOrder) SetImage(item.Sprite);
+    private void ProcessLayer(int layerOrder) {
+        if (layerOrder != this.layerOrder) return;
+        var item = manager.GetItem(layerOrder);
+        if (!item) itemImage.sprite = null;
+        else itemImage.sprite = item.Sprite;
         inventoryItem = item;
     }
 }

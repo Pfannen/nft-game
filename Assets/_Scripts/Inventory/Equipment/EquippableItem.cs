@@ -6,6 +6,7 @@ public class EquippableItem : InventoryItem {
     [SerializeField] protected EquipmentType equipmentType;
 
     public override bool IsUsable => true;
+    public EquipmentType EquipmentType => equipmentType;
 
     #region These methods should only be used when creating an instance at runtime
     

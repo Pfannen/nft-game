@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class CanvasRaycastManager : MonoBehaviour {
-    void Update() {
+    /* void Update() {
         if (Input.GetMouseButtonDown(0)) ProcessRaycastables();
-    }
+    } */
 
     public static List<RaycastResult> Raycast() {
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);

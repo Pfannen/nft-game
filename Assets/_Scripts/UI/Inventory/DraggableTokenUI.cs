@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableTokenUI : BasicTokenUI, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
+public class DraggableTokenUI : BasicTokenUI, IBeginDragHandler, IEndDragHandler, IDragHandler {
     [SerializeField] RectTransform parent;
     [SerializeField] RectTransform content;
 
@@ -16,18 +16,17 @@ public class DraggableTokenUI : BasicTokenUI, IPointerDownHandler, IBeginDragHan
         canvasGroup = GetComponentInChildren<CanvasGroup>();
     }
 
-        public void OnBeginDrag(PointerEventData eventData)
-    {
+    public void OnBeginDrag(PointerEventData eventData) {
+        if (canvas == null) canvas = GetComponentInParent<Canvas>();
+        content.SetParent(canvas.transform, true);
         canvasGroup.alpha = 0.6f;
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
+    public void OnDrag(PointerEventData eventData) {
         content.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
+    public void OnEndDrag(PointerEventData eventData) {
         var raycasts = CanvasRaycastManager.Raycast();
         foreach(var result in raycasts) {
             if (result.gameObject.TryGetComponent<WearableManagerUI>(out WearableManagerUI manager)) {
@@ -39,11 +38,5 @@ public class DraggableTokenUI : BasicTokenUI, IPointerDownHandler, IBeginDragHan
         canvasGroup.alpha = 1f;
         content.SetParent(parent.transform, true);
         content.anchoredPosition = new Vector2(0,0);
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (canvas == null) canvas = GetComponentInParent<Canvas>();
-        content.SetParent(canvas.transform, true);
     }
 }

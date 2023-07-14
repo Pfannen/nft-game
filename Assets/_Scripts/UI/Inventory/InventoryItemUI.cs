@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class InventoryItemUI : MonoBehaviour {
+public abstract class InventoryItemUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler {
     protected InventoryItem inventoryItem;
     protected int amount;
 
@@ -17,5 +18,13 @@ public abstract class InventoryItemUI : MonoBehaviour {
 
     protected void OnInventoryItemSelected(InventoryItemUI item) {
         InventoryItemSelected?.Invoke(item);
+    }
+
+    public void OnPointerDown(PointerEventData eventData) {
+    }
+
+    public virtual void OnPointerUp(PointerEventData eventData) {
+        Debug.Log("UP");
+        if (!eventData.dragging) InventoryItemSelected?.Invoke(this);
     }
 }

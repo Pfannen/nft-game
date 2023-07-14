@@ -41,8 +41,9 @@ public class SpriteController : MonoBehaviour {
         else ImageBuilder.SetLayersFromOutfit(outfit, spritesHolder, renderers);
     }
 
-    private void SetLayer(CharacterLayerItem layerItem) {
-        Debug.Log(layerItem);
+    private void SetLayer(int layerOrder) {
+        Debug.Log(layerOrder);
+        var layerItem = fashionManager.GetItem(layerOrder);
         renderers[layerItem.LayerOrder].sprite = layerItem.Image;
     }
 
