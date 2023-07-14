@@ -1,13 +1,9 @@
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
-using Web3Helpers;
-using System;
 using UnityEngine.SceneManagement;
 
 public class FungibleTokenUIManager : MonoBehaviour {
-    [SerializeField] BasicTokenUI tokenPrefab;
+    [SerializeField] DraggableTokenUI tokenPrefab;
     [SerializeField] RequestSO request;
     [SerializeField] SpriteLibraryAsset femaleSmachoLibrary;
     [SerializeField] SpriteLibraryAsset maleSmachoLibrary;
