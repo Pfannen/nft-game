@@ -29,9 +29,9 @@ public class DraggableTokenUI : BasicTokenUI, IBeginDragHandler, IEndDragHandler
     public void OnEndDrag(PointerEventData eventData) {
         var raycasts = CanvasRaycastManager.Raycast();
         foreach(var result in raycasts) {
-            if (result.gameObject.TryGetComponent<WearableManagerUI>(out WearableManagerUI manager)) {
+            if (result.gameObject.TryGetComponent<EquippablesManagerUI>(out EquippablesManagerUI manager)) {
                 Debug.Log(manager);
-                if (inventoryItem is CharacterPreset preset) manager.EquipCharacterPreset(preset);
+                manager.EquipItem(inventoryItem);
                 break;
             }
         }

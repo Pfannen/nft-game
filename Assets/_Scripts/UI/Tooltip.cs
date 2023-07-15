@@ -11,6 +11,9 @@ public class Tooltip : MonoBehaviour {
     [SerializeField] TMP_Text description;
     [SerializeField] Button button;
     [SerializeField] TMP_Text buttonText;
+    [SerializeField] Image background;
+    [SerializeField] ItemDetailsDisplay itemDetails;
+
     [SerializeField] float descriptionPadding = 4f;
     [SerializeField] float descriptionButtonGap = 20f;
 
@@ -24,7 +27,7 @@ public class Tooltip : MonoBehaviour {
         parentTransform = GetComponent<RectTransform>();
         var buttonTransform = button.GetComponent<RectTransform>();
         buttonDimensions = new Vector2(buttonTransform.sizeDelta.x, buttonTransform.sizeDelta.y);
-        DisableTextAndButton();
+        DisableChildObjects();
     }
 
     void OnEnable() {
@@ -36,15 +39,16 @@ public class Tooltip : MonoBehaviour {
     }
 
     public void SetDescription(string text) {
-        description.gameObject.SetActive(true);
+        //description.gameObject.SetActive(true);
         description.text = text;
-        parentTransform.sizeDelta = new Vector2(350 + descriptionPadding * 2, description.preferredHeight + (descriptionPadding * 2));
-        description.rectTransform.sizeDelta = new Vector2(350, description.preferredHeight);
+        //parentTransform.sizeDelta = new Vector2(350 + descriptionPadding * 2, description.preferredHeight + (descriptionPadding * 2) + 200);
+        //description.rectTransform.sizeDelta = new Vector2(description.rectTransform.sizeDelta.x, description.preferredHeight);
+        background.gameObject.SetActive(true);
         DisableButton();
     }
 
     public void SetButton(string text, UnityAction onButtonClick, bool buttonIsClicked) {
-        if (!button.gameObject.activeSelf) parentTransform.sizeDelta += new Vector2(0, buttonDimensions.y + descriptionButtonGap);
+        //if (!button.gameObject.activeSelf) parentTransform.sizeDelta += new Vector2(0, buttonDimensions.y + descriptionButtonGap);
         button.gameObject.SetActive(true);
         if (buttonIsClicked) button.image.color = button.colors.disabledColor; 
         else button.image.color = button.colors.normalColor;
@@ -55,12 +59,14 @@ public class Tooltip : MonoBehaviour {
 
     private void OnInventoryItemSelected(InventoryItemUI item) {
         if (current == item) {
-            DisableTextAndButton();
+            DisableChildObjects();
             current = null;
         } else {
             current = item;
             var actualItem = item.InventoryItem;
+            EnableChildObjects();
             SetDescription(actualItem.Description);
+            itemDetails.SetItem(actualItem);
             if (actualItem.IsUsable) {
                 SetButton("Use", actualItem.ItemMethod, false);
             }
@@ -70,9 +76,18 @@ public class Tooltip : MonoBehaviour {
         }
     }
 
+    private void DisableChildObjects() {
+        for (int i = 0; i < transform.childCount; i++) transform.GetChild(i).gameObject.SetActive(false);
+    }
+
+    private void EnableChildObjects() {
+        for (int i = 0; i < transform.childCount; i++) transform.GetChild(i).gameObject.SetActive(true);
+    }
+
     private void DisableTextAndButton() {
         DisableButton();
         DisableText();
+        background.gameObject.SetActive(false);
     }
 
     private void DisableButton() {
