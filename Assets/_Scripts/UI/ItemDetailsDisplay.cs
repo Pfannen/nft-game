@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public class ItemDetailsDisplay : MonoBehaviour {
     [SerializeField] TMP_Text nameIdText;
-    [SerializeField] Image itemImage;
-    [SerializeField] RectTransform test;
+    [SerializeField] RectTransform itemDisplay;
 
     /* public void SetItem(InventoryItem item) {
         itemImage.preserveAspect = true;
@@ -15,9 +14,8 @@ public class ItemDetailsDisplay : MonoBehaviour {
 
     public void SetItem(InventoryItemUI tokenUI) {
         var item = tokenUI.InventoryItem;
-        itemImage.preserveAspect = true;
-        if (test.transform.childCount > 0) Destroy(test.transform.GetChild(0).gameObject);
-        Instantiate(tokenUI.GetItemDisplay(), Vector3.zero, Quaternion.identity).transform.SetParent(test, false);
+        if (itemDisplay.transform.childCount > 0) Destroy(itemDisplay.transform.GetChild(0).gameObject);
+        Instantiate(tokenUI.GetItemDisplay(), Vector3.zero, Quaternion.identity).transform.SetParent(itemDisplay, false);
         //itemImage.sprite = item.Image;
         nameIdText.text = $"{item.ItemName}\nCollection: {item.Collection}\nToken Id: {item.TokenId}";
     }

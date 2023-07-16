@@ -76,7 +76,8 @@ public class Tooltip : MonoBehaviour {
         }
     }
 
-    private void DisableChildObjects() {
+    public void DisableChildObjects() {
+        current = null;
         for (int i = 0; i < transform.childCount; i++) transform.GetChild(i).gameObject.SetActive(false);
     }
 

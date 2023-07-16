@@ -583,11 +583,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
---- !u!1 &774309722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2056628381287629599, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
-  m_PrefabInstance: {fileID: 2056628381192390194}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &793744248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,11 +1441,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1822745455 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1822745455, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
-  m_PrefabInstance: {fileID: 2056628381192390194}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1857805364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2056628381483424262, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
@@ -1779,14 +1769,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smol
       objectReference: {fileID: 0}
-    - target: {fileID: 2056628381483424261, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2056628381483424261, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2056628381483424262, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1829,18 +1811,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2056628381483424262, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2056628381483424266, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
-      propertyPath: sprites
-      value: 
-      objectReference: {fileID: 774309722}
-    - target: {fileID: 2056628381483424266, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
-      propertyPath: mountSpawn
-      value: 
-      objectReference: {fileID: 1822745455}
-    - target: {fileID: 2056628381483424266, guid: 1f0d7d0478e27d747a8a6136661b7e46, type: 3}
-      propertyPath: toggleMount
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

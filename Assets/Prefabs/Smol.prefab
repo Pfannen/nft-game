@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 2056628381483424371}
   m_Layer: 7
   m_Name: Smol
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,6 +362,9 @@ MonoBehaviour:
   climbing:
     serializedVersion: 2
     m_Bits: 256
+  mountSpawn: {fileID: 1822745455}
+  toggleMount: 0
+  sprites: {fileID: 2056628381287629599}
 --- !u!114 &2056628381483424269
 MonoBehaviour:
   m_ObjectHideFlags: 0

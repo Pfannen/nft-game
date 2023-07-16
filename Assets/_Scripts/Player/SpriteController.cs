@@ -10,6 +10,8 @@ public class SpriteController : MonoBehaviour {
     CharacterLayerManager fashionManager;
     SpriteRenderer[] renderers;
 
+    public GameObject SpritesHolder => spritesHolder;
+
     void Awake() {
         fashionManager = GetComponent<CharacterLayerManager>();
     }
