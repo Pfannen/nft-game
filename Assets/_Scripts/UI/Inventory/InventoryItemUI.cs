@@ -9,6 +9,8 @@ public abstract class InventoryItemUI : MonoBehaviour, IPointerUpHandler, IPoint
     public static event Action<InventoryItemUI> InventoryItemSelected;
     public InventoryItem InventoryItem => inventoryItem;
 
+    public abstract GameObject GetItemDisplay();
+
     //public string Description { get; set; } = "No description was set";
 
     public virtual void Initialize(InventoryItem inventoryItem, int amount) {

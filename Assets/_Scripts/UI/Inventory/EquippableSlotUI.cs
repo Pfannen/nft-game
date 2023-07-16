@@ -9,7 +9,13 @@ public class EquippableSlotUI : InventoryItemUI {
     [SerializeField] Image itemImage;
 
     Image image;
+    GameObject itemDisplay;
     CharacterLayerManager manager;
+
+    public override GameObject GetItemDisplay() {
+        if (!itemDisplay) return image.gameObject;
+        else return itemDisplay;
+    }
 
     void Awake() {
         image = GetComponent<Image>();

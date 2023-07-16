@@ -66,7 +66,7 @@ public class Tooltip : MonoBehaviour {
             var actualItem = item.InventoryItem;
             EnableChildObjects();
             SetDescription(actualItem.Description);
-            itemDetails.SetItem(actualItem);
+            itemDetails.SetItem((BasicTokenUI)item);
             if (actualItem.IsUsable) {
                 SetButton("Use", actualItem.ItemMethod, false);
             }

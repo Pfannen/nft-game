@@ -11,6 +11,10 @@ public class DraggableTokenUI : BasicTokenUI, IBeginDragHandler, IEndDragHandler
 
     public RectTransform Content => content;
 
+    public override GameObject GetItemDisplay() {
+        return content.gameObject;
+    }
+
     void Awake() {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponentInChildren<CanvasGroup>();
